@@ -25,8 +25,8 @@
       * Composer Create-Project安装 -- 推荐： composer create-project laravel/laravel blog "5.1.*"。
     * Configuration 配置：
       * 目录权限： `storage`、 `bootstrap/cache` 可写， `sudo chmod -R 777 storage`。
-      * 应用key： `key:generate`设置到`.ev`文件， 用于session等加密。
+      * 应用key： `key:generate`设置到`.env`文件， 用于session等加密。
       * 可选配置：在`config/app.php`设置， 如`timezone`、`locale`
       * Apache、Nginx 配置。
-      * 环境配置 -- [DotEnv](https://github.com/vlucas/phpdotenv)： 点配置文件切换开发、测试、生产的环境！
-        * 配置项都在超全局变量 `$_ENV` 中， laravel中可用`env()`辅助方法获取。
+      * 环境配置 -- [DotEnv](https://github.com/vlucas/phpdotenv)： 点配置文件切换开发、测试、生产的环境！配置项都在超全局变量 `$_ENV` 中， laravel中可用`env()`辅助方法获取。
+      * 访问当前应用的环境： 可在 .env 文件的 APP_ENV 配置项得到；也可以使用 `$environment = App::environment();`获取。
