@@ -29,4 +29,4 @@
       * 可选配置：在`config/app.php`设置， 如`timezone`、`locale`
       * Apache、Nginx 配置。
       * 环境配置 -- [DotEnv](https://github.com/vlucas/phpdotenv)： 点配置文件切换开发、测试、生产的环境！
-        * 
+        * 配置项都在超全局变量 `$_ENV` 中， laravel中可用`env()`辅助方法获取
