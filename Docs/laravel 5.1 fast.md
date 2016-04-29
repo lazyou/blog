@@ -16,3 +16,7 @@
     * Encryption： 加密方式， 以前版本laravel借助 php的`mcrypt`加码，laravel5.1开始借助`openssl`扩展（因为它维护更活跃）。 
     * API文档： [https://laravel.com/api/5.1/](https://laravel.com/api/5.1/)
 
+##### Setup：
+  * https://laravel.com/docs/5.1/installation
+    * Installation 安装： 
+      * 环境：PHP >= 5.5.9， OpenSSL、PDO、Mbstring、Tokenizer PHP Extension， 
