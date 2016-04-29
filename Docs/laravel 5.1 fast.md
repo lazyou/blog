@@ -3,4 +3,4 @@
 * https://laravel.com/docs/5.1/releases
   * laravel的第一个LTS版本， 2年bugfixes、3年security fixes。
   * php 5.59+。
-  * [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) 编码风格[重要]。
+  * [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) 编码风格。
