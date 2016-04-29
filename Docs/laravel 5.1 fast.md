@@ -30,4 +30,4 @@
       * Apache、Nginx 配置。
       * 环境配置 -- [DotEnv](https://github.com/vlucas/phpdotenv)： 点配置文件切换开发、测试、生产的环境！配置项都在超全局变量 `$_ENV` 中， laravel中可用`env()`辅助方法获取。
       * 访问当前应用的环境： 可在 .env 文件的 APP_ENV 配置项得到；也可以使用 `$environment = App::environment();`获取。
-      * Configuration Caching： `config:cache`生成的缓存文件用来快速的加载你的框架。
+      * Configuration Caching： `php artisan config:cache`生成的缓存文件用来快速的加载你的框架，不建议在开发环境中使用。
