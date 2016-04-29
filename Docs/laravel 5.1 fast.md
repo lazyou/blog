@@ -23,4 +23,5 @@
       * Homestead环境： 或使用 [Laravel Homestead 虚拟机](https://laravel.com/docs/5.1/homestead)。
       * Composer全局安装： `composer global require "laravel/installer"， laravel new blog`。
       * Composer Create-Project安装 -- 推荐： composer create-project laravel/laravel blog "5.1.*"。
-    * Configuration
+    * Configuration 配置：
+      * 目录权限： `storage`、 `bootstrap/cache` 可写， `sudo chmod -R 777 storage`。
