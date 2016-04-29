@@ -20,6 +20,6 @@
   * https://laravel.com/docs/5.1/installation
     * Installation 安装： 
       * 环境： PHP >= 5.5.9， OpenSSL、PDO、Mbstring、Tokenizer 等PHP Extension。
-      * laravel安装： 
-        * Composer全局安装： `composer global require "laravel/installer"， laravel new blog`
-        * Composer Create-Project安装 -- 推荐： composer create-project laravel/laravel blog "5.1.*"
+      * Homestead： 或 [Laravel Homestead 虚拟机环境](https://laravel.com/docs/5.1/homestead)。
+      * Composer全局安装： `composer global require "laravel/installer"， laravel new blog`
+      * Composer Create-Project安装 -- 推荐： composer create-project laravel/laravel blog "5.1.*"
