@@ -7,4 +7,7 @@
   * Event Broadcasting： 事件广播。
   * Middleware Parameters： 中间件参数。
   * Testing Overhaul： 什么鬼。
-  * 
+  * Model Factories： Model工厂， faker测试数据之类。
+  * Artisan Improvements： Artisan升级。
+  * Folder Structure： 目录结构变化 `app/Commands` 重命名为 `app/Jobs`。
+  * Encryption： 加密 
