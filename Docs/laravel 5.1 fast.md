@@ -34,5 +34,6 @@
       * 配置项获取： `config('app.timezone', 'if null return');`。
       * 命名你的应用： 不推荐。
     * 维护模式： `php artisan down`， `php artisan up` 开关你的网站， 定制模板在`resources/views/errors/503.blade.php`。
+  * https://laravel.com/docs/5.1/homestead 
 
 ##### Tutorials：
