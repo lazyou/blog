@@ -14,4 +14,5 @@
     * Artisan Improvements： Artisan升级。
     * Folder Structure： 目录结构变化 `app/Commands` 重命名为 `app/Jobs`。
     * Encryption： 加密方式， 以前版本laravel借助 php的`mcrypt`加码，laravel5.1开始借助`openssl`扩展（因为它维护更活跃）。 
-    * API文档： https://laravel.com/api/5.1/
+    * API文档： [https://laravel.com/api/5.1/](https://laravel.com/api/5.1/)
+
