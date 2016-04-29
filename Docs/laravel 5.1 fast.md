@@ -1,7 +1,6 @@
-#### Laravel 5.1 doc fast : https://laravel.com/
+#### [Laravel 5.1 doc fast](https://laravel.com/docs/5.1/) : 
 
 * https://laravel.com/docs/5.1/releases
-  
   * Laravel5.1特性：
     * laravel的第一个LTS版本， 2年bugfixes、3年security fixes。
     * php 5.59+。
