@@ -11,7 +11,6 @@
     * Model Factories： Model工厂， 生成测试数据之类。
     * Artisan Improvements： Artisan升级。
     * Folder Structure： 目录结构变化 `app/Commands` 重命名为 `app/Jobs`。
-    * Encryption： 加密方式， 以前版本laravel借助 php的`mcrypt`加码，laravel5.1开始借助`openssl`扩展（因为它维护更活跃）。
-     
+    * Encryption： 加密方式， 以前版本laravel借助 php的`mcrypt`加码，laravel5.1开始借助`openssl`扩展（因为它维护更活跃）。 
   * Laravel 5.0:
   
