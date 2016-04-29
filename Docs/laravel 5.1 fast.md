@@ -26,3 +26,6 @@
     * Configuration 配置：
       * 目录权限： `storage`、 `bootstrap/cache` 可写， `sudo chmod -R 777 storage`。
       * 应用key： `key:generate`设置到`.ev`文件， 用于session等加密。
+      * 可选配置：在`config/app.php`设置， 如`timezone`、`locale`
+      * Apache、Nginx 配置。
+      * 环境配置 -- [DotEnv](https://github.com/vlucas/phpdotenv)： 点配置切换开发、测试、生产的环境！
