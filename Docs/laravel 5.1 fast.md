@@ -6,4 +6,5 @@
   * [PSR-2编码风格](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)。
   * Event Broadcasting： 事件广播。
   * Middleware Parameters： 中间件参数。
-  * Testing Overhaul： 什么鬼
+  * Testing Overhaul： 什么鬼。
+  * 
