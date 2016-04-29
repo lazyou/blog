@@ -19,4 +19,5 @@
 ##### Setup：
   * https://laravel.com/docs/5.1/installation
     * Installation 安装： 
-      * 环境：PHP >= 5.5.9， OpenSSL、PDO、Mbstring、Tokenizer 等PHP Extension， 
+      * 环境： PHP >= 5.5.9， OpenSSL、PDO、Mbstring、Tokenizer 等PHP Extension。
+      * laravel安装： 
