@@ -33,3 +33,6 @@
       * Configuration Caching： `php artisan config:cache`生成的缓存文件用来快速的加载你的框架，不建议在开发环境中使用。
       * 配置项获取： `config('app.timezone', 'if null return');`。
       * 命名你的应用： 不推荐。
+    * 维护模式： `php artisan down`， `php artisan up` 开关你的网站， 定制模板在`resources/views/errors/503.blade.php`。
+
+##### Tutorials：
