@@ -374,6 +374,63 @@
         }
         ```
 * 5.5 循环
+    * 为了理解条件语句，可以把JS中的代码想像成一条条分支路径。
+    * **循环语句**就是程序路径的一个贿赂，可以让一部分代码重复执行。
+    * JS中右4种循环语句： `while、 do/while、 for、 for/in`。
+    1. `while`
+        * 每次循环表达式的值也不同是很重要的一点， 否则可能造成死循环。
+        ```
+        while (expression)
+            statement
+        ```
+    2. `do/while`
+        * 和wihle相似，只不过是在循环的尾部检测循环表达式，意味着循环体*至少会执行一次*。
+        ```
+        do
+            statement 
+        while (expression);
+        ```
+    3. `for`
+        * 比`while`更加方便的循环控制结构。
+        * initizlize表达式*只在循环开始之前执行一次*。
+        * test表达式的结果来决定是否执行循环体。
+        * 如果test位真值， 则执行循环体内的语句， 最后执行increment表达式。
+        * for循环中的那三个表达式中的任何一个都是可以忽略的，但是两个分号必不可少`for(;;)`。
+        * 如果省略test表达式， 那么这将是一个*死循环*。
+        ```
+        for(initialize; test; increment)
+            statement;
+        ```
+        * 等价于`while`如下写法
+        ```
+        initialize;
+        while(test) {
+            statement;
+            increment;
+        }
+        ```
+    4. `for/in`
+        ```
+        for (variable in object)
+            statement;
+        ```
+        * for循环来**遍历数组元素**
+        ```
+        for(var i=0; i< a.length; i++)
+            console.log(a[i]);
+        ```
+        * for/in循环则是方便**遍历对象属性**
+        * 如果object表达式位null或者undefined，会跳过循环。
+        ```
+        for(var p in o) // 将*属性名*赋值给变量 p
+            console.log(o[p]);
+        ```
+        * for/in循环数组枚举数组索引， JS数组不过是一种特殊对象
+        * for/in循环并不会遍历对象的所有属性，只有*可枚举*的属性才会被遍历到。(很多语言核心定义的内置方法、属性都是*不可枚举*的)
+        * 代码中定义的*所有*属性和方法都是可枚举的。
+        * 属性枚举的顺序：
+            * EAMCScripe规范并没有制定for/in循环按照何种顺序来枚举属性。
+            * 主流浏览器都是选定义的属性先被枚举。
 * 5.6 跳转
 * 5.7 其他语句类型
 * 5.8 JavaScript语句小结
