@@ -507,8 +507,28 @@
         * `"use strict"`仅仅是字符串， 需要加单引号或者爽引号。 
         * 只能出现在代码的开始或者函数体的开始。
         * TODO: 补充严格模式和非严格模式的区别。
-
 * 5.8 JavaScript语句小结
+    ```
+    break           break [label]; // `[]`是可选的意思
+    case            case expression;
+    continue        continue [label];
+    debugger        debugger;
+    default         default; // switch 中标记默认的语句
+    do/while        do statement while(expression);
+    empty           ; // 什么都不做
+    for             for(init; test;increment) statement;
+    for/in          for(var in object)
+    function        function name([param[], ...]) {body}
+    label           label: statement
+    return          return [expression];
+    switch          switch(expression) {statements}
+    throw           throw expression;
+    try             try {statements} [catch {handler statements}] [finally {cheanup statements}]
+    use strict      "use strict"
+    var             var name=[=expr][,...];
+    while           while(expression) statement
+    with            with(object) stament
+    ```
 
 
 ## 第6章 对象
