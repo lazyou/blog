@@ -634,6 +634,7 @@
     * 属性值可以用两个方法代替，这两个方法就是 `getter` 和 `setter`。
     * 当程序查询属性时， JS调用 `getter` 方法。
     * 当程序设置属性时， JS调用 `setter` 方法。
+    * 由 getter 和 setter 定义的属性称为**存取器属性**
     ```
     var o = {
         a: 'init',
@@ -650,6 +651,57 @@
     ```
     * TODO: 如何控制所有属性的 get 和 set？
 * 6.7 属性的特性
+    * 属性的4个特性： 
+        * 属性的值（value）
+        * 可写性（writable）
+        * 可枚举性（enumerable）
+        * 可配置性（configurable）
+    * ES5 定义一个名为“属性描述符”的对象代表属性的4个特性
+    * 通过 `Object.getOwnPropertyDescriptor()` 获得对象**自有属性**的属性描述
+    ```
+    Object.getOwnPropertyDescriptor({a:1}, "a");
+    // {configurable: true, enumerable: true, value: 1, writable: true}
+
+    var o = {
+        a: 'init',
+        data_prop: 'data_prop',
+        get a() { // 方法名就是要访问的属性名， `get 空格 属性名()`
+            console.log('getter a()');
+        },
+        set a(value) {
+            console.log('setter a()');
+        }
+    };
+    Object.getOwnPropertyDescriptor(o, "a");
+    // {configurable: true, enumerable: true, get: function a() {...}, set: function a(value) {...}}
+
+    // 不存在的属性， 返回 undefined
+    // 继承属性， 返回 undefined
+    ```
+    * 设置属性的特性或者让新建属性具有某种特性 `Object.defineProperty()` 
+    ```
+    var o = {};
+    // 添加一个不可枚举的数据属性x， 并赋值为1
+    Object.defineProperty(o, "x", {value:1, writable: true, enumerable: false, configurable: true});
+
+    // 属性是存在的，但不可枚举
+    o.x; // => 1
+    Object.keys(o); // => []
+
+    // 把属性x的可读性改为只读
+    Object.defineProperty(o, "x", {writable: false});
+    // 试图修改 x 的值
+    o.x = 2; // 操作失败，**但是没报错啊**， 严格模式时回报错
+    o.x; // => 1 仍然是 1
+
+    // 属性可通过以下芳芳进行修改
+    Object.defineProperty(o, "x", {value: 2});
+
+    // 将x属性改为存取器属性
+    Object.defineProperty(o, "x", { get: function() {return 0;} });
+    o.x; // => 0
+    ```
+    * 批量设置多个属性的特性 `Object.defineProperties()`
 * 6.8 对象的三个属性
 * 6.9 序列化对象
 * 6.10 对象方法
