@@ -631,6 +631,24 @@
         * `Object.keys()`： 返回一个数组，这个数组由对象中*可枚举的*自有属性的名称组成。
         * `Object.getOwnPropertyNames()`： 返回对象所有自有属性的名称，而不仅仅是可枚举的属性。
 * 6.6 属性getter和setter
+    * 属性值可以用两个方法代替，这两个方法就是 `getter` 和 `setter`。
+    * 当程序查询属性时， JS调用 `getter` 方法。
+    * 当程序设置属性时， JS调用 `setter` 方法。
+    ```
+    var o = {
+        a: 'init',
+        data_prop: 'data_prop',
+        get a() { // 方法名就是要访问的属性名， `get 空格 属性名()`
+            console.log('getter a()');
+        },
+        set a(value) {
+            console.log('setter a()');
+        }
+    };
+    o.a;
+    o.a = 1;
+    ```
+    * TODO: 如何控制所有属性的 get 和 set？
 * 6.7 属性的特性
 * 6.8 对象的三个属性
 * 6.9 序列化对象
