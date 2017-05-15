@@ -84,3 +84,8 @@
 
 #### Laravel 5.1.4
 * 增加了简单的登录限制功能。认证的文档 -- http://d.laravel-china.org/docs/5.4/authentication#authentication-throttling
+
+
+#### Laravel 5.1.11
+* 出了内置的 授权 功能！利用回调和授权策略类，能更方便的组织应用程序的授权逻辑。
+    * 授权的文档： http://d.laravel-china.org/docs/5.4/authorization
