@@ -62,3 +62,21 @@
 * 配置文件缓存
 * Symfony VarDumper
     * `dd()` 函数
+
+
+#### Laravel 5.1
+* PHP 5.5.9+
+* LTS： 第一个长支持版本
+* PSR-2 代码风格
+    * PSR-2 代码风格指南 已经被 Laravel 框架采用为默认的代码风格指
+* 事件广播（TODO:）
+    * WebSockets
+    * Laravel 的事件广播机制很好的支持了此类应用的开发，广播事件允许服务器端代码和 JavaScript 框架间分享相同的事件名称
+* 中间件参数
+* 测试改进
+* 模型工厂
+* Artisan 的改进
+* 文件夹结构
+* 加密
+    * 以前版本使用 `mcrypt` PHP扩展
+    * 现在版本使用 `openssl` PHP扩展
