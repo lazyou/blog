@@ -30,3 +30,35 @@
 * "简易分页"
     * `simplePaginate`
 * 迁移确认
+
+
+#### Laravel 5.0
+* 采用自动加载标准（PSR-4）
+* 新的目录结构
+* Contracts
+    * 所有 Laravel 组件实现所用的接口都放在 illuminate/contracts 文件夹中，他们没有其他依赖
+* 路由缓存
+    * `route:cache` Artisan 命令可大幅度地优化路由注册寻找速度
+* 路由中间件
+    * Laravel4 时叫作 过滤器
+* 控制器方法注入
+    * 可以在控制器方法中使用依赖注入， *服务容器* 会自动注入依赖
+    * 例子 `public function createPost(Request $request, PostRepository $posts)`
+* 认证基本架构
+    * 认证系统默认包含了用户注册，认证，以及重设密码的控制器，还有对应的视图，视图文件存放在 `resources/views/auth`
+* 事件对象（TODO:）
+* 数据库队列
+* Laravel 调度器
+* DotEnv
+* Laravel Elixir
+    * 一个流畅、口语化的接口，可以编译以及合并静态资源
+* 文件系统集成
+* Form Requests 
+    * 这些 `request` 对象可以和控制器方法依赖注入结合使用，提供一个不需模版的方法，来验证用户输入
+* 简易控制器请求验证
+    * 如果对你的应用程序来说 `Form Requests` 太复杂了，可以考虑使用手动验证方法
+* 新的生成器
+    * `php artisan list` 查看 `make` 系列的命令
+* 配置文件缓存
+* Symfony VarDumper
+    * `dd()` 函数
