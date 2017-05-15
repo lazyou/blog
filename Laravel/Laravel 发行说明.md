@@ -80,3 +80,7 @@
 * 加密
     * 以前版本使用 `mcrypt` PHP扩展
     * 现在版本使用 `openssl` PHP扩展
+
+
+#### Laravel 5.1.4
+* 增加了简单的登录限制功能。认证的文档 -- http://d.laravel-china.org/docs/5.4/authentication#authentication-throttling
