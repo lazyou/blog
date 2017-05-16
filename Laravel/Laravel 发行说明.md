@@ -101,3 +101,16 @@
 * 数组输入验证
 * Bail 认证规则
 * Eloquent 全局作用域优化
+
+
+#### Laravel 5.3
+* 消息通知
+* WebSockets / 事件广播
+* Laravel Passport (OAuth2 认证服务)
+* 搜索系统 Laravel Scout
+* Mailable 对象
+* 存储上传文件
+* Webpack 和 Laravel Elixir
+* 路由文件
+* Blade 中的 $loop 魔术变量
+
