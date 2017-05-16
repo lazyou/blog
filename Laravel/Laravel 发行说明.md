@@ -114,3 +114,20 @@
 * 路由文件
 * Blade 中的 $loop 魔术变量
 
+
+#### Laravel 5.4
+* Markdown 邮件和通知
+* Laravel Dusk
+* Laravel Mix
+    * 完全基于 `Webpack` 而非 `Gulp`
+* Blade Components & Slots
+* 广播模型绑定
+* 集合高阶消息传递
+* 基于对象的 Eloquent 事件
+* 任务级别重试和超时
+* 请求清理中间件
+* "实时" Facades
+* 自定义 Pivot 表模型
+* 优化 Redis 集群支持
+* 迁移默认字符长度
+    * 认使用 `utf8mb4` 字符编码，该编码支持对 "emojis" 表情在数据库进行存储。
