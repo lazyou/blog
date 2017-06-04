@@ -204,7 +204,96 @@ join: 1.txt:2: is not sorted: 19910101: chen: 女
 ```
 
 #### 第03讲 文本处理
+* 文本排序 *
+    * **sort**  命令排序
+    ```
+    -b      忽略开头空白
+    -d      字典排序
+    -g      以浮点类型排序
+    -f      忽略大小写
+    -k      定义排序键值段
+    -n      以整数类型比较
+    -o      将输出写入制定文件
+    -r      倒序排序
+    -t      制定分割字符（默认空格）
+    -u      只保留行唯一记录
+    ```
 
+```sh
+# -k2（-k 2） 按第二列排序
+lazyou@u:~$ sort -k2 1.txt 
+19910101: chen: 女
+19901116: lin: 男
+
+
+# 对 /etc/passwd 使用冒号分割并按照第一列的第一个字符（到最后一个字符）排序
+lazyou@u:~$ sort -t : -k1.1 /etc/passwd
+_apt:x:105:65534::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+bin ...
+```
+
+* 删除重复
+    * `uniq` 命令
+    ```
+    -c      显示行数
+    -i      忽略大小写
+    -u      只显示不重复的记录
+    -d      只显示重复记录
+    ``
+
+* 格式化段落
+    * `fmt` 命令，需要安装这个命令
+```
+# 默认一个空格格式化
+lazyou@u:~$ cat 1.txt | fmt
+19901116: lin: 男 19910101: chen: 女
+
+# 行的长度不超过 10 个字符
+lazyou@u:~$ cat 1.txt | fmt -w 10
+19901116:
+lin: 男
+19910101:
+chen: 女
+```
+
+* 计算行数 / 字数 / 字符数
+    * `wc` 命令
+    -c      计算字节数
+    -l      计算行数
+    -w      计算字数（单词数， 默认以空格做分割计算。）
+
+```sh
+lazyou@u:~$ wc 1.txt 
+ 2  6 39 1.txt
+2行
+6个单词
+39个字符
+
+
+lazyou@u:~$ wc -l 1.txt 
+2 1.txt
+lazyou@u:~$ wc -w 1.txt 
+6 1.txt
+lazyou@u:~$ wc -c 1.txt 
+39 1.txt
+```
+
+* 打印(TODO: 怎么执行)
+    * Berkeley 分割的打印命令
+        * lpr       lpr-queue file.ps
+        * lpq       lpq-queue
+        * lprm      lprm-queue job
+    * System V 风格打印命令
+        * lp        lp -d queue file.ps
+        * lpstat    lpstat -t queue
+        * cancel    cancel queue-job
+
+* 显示文本的开头或结尾
+    * head -n <N> filename  从头部显示N行（N可以是负数）
+    * tail -n <N> filename  从尾部显示N行（N有无加号意义不同， 2 与 +2 表示不同）
 
 
 #### 第04讲 SED与AWK
