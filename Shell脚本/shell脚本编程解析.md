@@ -297,8 +297,107 @@ lazyou@u:~$ wc -c 1.txt
 
 
 #### 第04讲 SED与AWK
+* SED 介绍
+    * SED 是非交互性文本流编辑器
+    * SED 的作用是抽取/ 比较域，增加/ 删除/ 附加字段等
+    * SED 将文本/ 标准输入读取值缓冲区
 
+* 调用 SED（三种）
+    * 命令行： `sed [选项] <sed命令> <输入文件>`
+    * 例子
+        ```sh
+        lazyou@u:~$ sed -n '1,1p' 1.txt 
+        199××1×6: lin: 男
+        ```
+    * sed命令插入脚本文件，然后调用SED
+        * `sed [选项] -f <sed脚本文件> <输入文件>`
+        * 例子
+            ```sh 
+            #!/bin/sed -f
+            # 文件名 test.sed
+            1,1p
+            ```
+            ```sh
+            lazyou@u:~$ sed -n -f test.sed 1.txt 
+            199××1×6: lin: 男
+            ```
+    * sed命令插入脚本文件，执行脚本
+        * `<sed脚本文件> [选项] <输入文件>` 
+        * 例子
+            * test.sed 参考上面， 并给 test.sed 添加可执行权限
+            ```sh
+            lazyou@u:~$ chmod a+x test.sed 
+            lazyou@u:~$ ./test.sed -n 1.txt 
+            199××1×6: lin: 男
+            ```
+* SED 匹配打印
+    * 打印指定行： `sed -n '2p' file`
+    * 打印指定范围： `sed -n '1,2p' file`
+    * 打印所有含有特定字符串的行： `sed -n '/abc/p' file`
+    * 从指定行开始打印，只要匹配到特定字符串： `sed -n '1,/abc/p' file`
 
+* SED 插入/ 修改/ 删除/ 替换
+    * 插入： 
+        * `sed '1 a\kkkkk' file;`： a是apped缩写，追加到后面
+         * `sed '/abc/i\kkkkk' file`： i是insert，插入到前面（**所有的**abc字符串前面都插入 kkkkk）
+    * 修改： `sed '/abc/c\kkkkk' file`： 含有abc的行全部替换
+    * 删除： `sed '/abc/d' file` 含有abc的行全部删除
+    * 替换： `sed 's/abc/cba/g' file`： 替换所有abc为 cba
+
+* SED 与 SHELL变量的交互
+    ```sh
+    a=abc
+    sed 's/abc/xyz/g' file
+    sed 's/$a/xyz/g' file # 使用变量a
+    ```
+
+* AWK 介绍
+    * AWK 是自解释编程语言。（TODO: 参考下wiki）
+    * AWK 作用是抽取/ 比较域， 按照目标格式列打印字段
+    * AWK 工作机制是逐行扫描和处理文件
+
+* 调用 AWK（三种， 和sed一样）
+    * 命令行： `awk [选项] <awk命令> <输入文件>`
+        * 例子
+        ```sh
+        # 打印文件的第一列
+        lazyou@u:~$ awk -F: '{print $1}' /etc/passwd
+        root
+        daemon
+        bin
+        ```
+    * AWK 命令插入脚本文件，然后调用 AWK
+        * `awk [选项] -f <awk脚本文件> <输入文件>`
+        * 例子
+        ```sj
+        #!/bin/awk -f
+        # 文件名 test.awk
+        {print $1}
+        ```
+        ```
+        lazyou@u:~$ awk -F: -f test.awk /etc/passwd
+        root
+        daemon
+        bin
+        ```
+    * awk命令插入脚本文件，执行脚本
+        * `<awk脚本文件> [选项] <输入文件>` 
+         * test.sed 参考上面， 并给 test.awk 添加可执行权限
+            ```sh
+            lazyou@u:~$ chmod a+x test.awk 
+            ```
+            TODO: 到这里，待续！！！
+* 使用 AWK打印指定列
+
+* AWK 条件操作符
+
+* AWK 内置变量
+
+* AWK 内置字符串函数
+
+* AWK 输出函数
+
+* AWK 数组
 
 #### 第05讲 使用管道 
 
