@@ -3,6 +3,7 @@
 # 针对修改了路径为完成的路径
 # lazyou 2017.08.18
 
+```
 function fish_prompt --description 'Write out the prompt'
     # Just calculate these once, to save a few cycles when displaying the prompt
     if not set -q __fish_prompt_hostname
@@ -41,3 +42,4 @@ function fish_prompt --description 'Write out the prompt'
 
     end
 end
+```
