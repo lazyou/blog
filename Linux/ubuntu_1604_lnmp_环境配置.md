@@ -1,12 +1,3 @@
-* 服务器
-root    520..lin734
-lxl     520lin734
-
-* mysql
-root    520..mysql734
-test    123123
-
-
 * https://laravel-china.org/articles/4912/start-from-scratch-to-build-a-complete-and-comprehensive-lnmp-laravel-online-operating-environment
 
 ### 服务器语言设置 
