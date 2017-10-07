@@ -179,3 +179,59 @@ $ composer 查看composer安装是否成功
     * `php artisan migrate`
 
     * ...
+
+
+
+#### 安装 php redis 扩展
+* https://github.com/phpredis/phpredis.git
+    ```
+    git clone https://github.com/phpredis/phpredis.git
+    cd phpredis
+    phpize
+    ./configure
+    make
+    make test
+    sudo make install # 这一步注意观察 redis.so 生成的目录. 一般来说会自动分配好
+    sudo vim /etc/php/7.0/cli/conf.d/30-redis.ini # 写入内容 extension=redis.so
+    sudo service php7.0-fpm restart
+    ```
+
+* 验证扩展:
+    * `php -m`
+
+    * redis_test.php, `php redis_test.php` 执行脚本
+        ```
+        <?php
+
+        //连接本地Redis服务
+        $redis=new Redis();
+        $redis->connect('localhost', '6379'); //$redis->auth('admin123');//如果设置了密码，添加此行
+        //查看服务是否运行
+        $redis->ping();
+
+        //选择数据库
+        $redis->select(5);
+
+        //设置数据
+        $redis->set('school', 'WuRuan');
+        //设置多个数据
+        $redis->mset(array('name'=>'jack','age'=>24,'height'=>'1.78'));
+
+        //存储数据到列表中
+        $redis->lpush("tutorial-list", "Redis");
+        $redis->lpush("tutorial-list", "Mongodb");
+        $redis->lpush("tutorial-list", "Mysql");
+
+        //获取存储数据并输出
+        echo $redis->get('school');
+
+        echo '<br/>';
+
+        $gets=$redis->mget(array('name','age','height'));
+        var_dump($gets);
+
+        echo '<br/>';
+
+        $tl=$redis->lrange("tutorial-list", 0, 5);
+        var_dump($tl);
+        ```
