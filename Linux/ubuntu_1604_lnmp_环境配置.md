@@ -1,6 +1,6 @@
 * https://laravel-china.org/articles/4912/start-from-scratch-to-build-a-complete-and-comprehensive-lnmp-laravel-online-operating-environment
 
-### 服务器语言设置 
+### 服务器语言设置
 * 一般不做这个设置
 
 * 解决中文乱码, 使服务器中文化
@@ -39,7 +39,7 @@
 
 * 配置 php.ini:
     * `vim /etc/php/7.0/fpm/php.ini`
-    
+
     * 定位到 `;cgi.fix_pathinfo=0` 这行, 去掉其前面的 `;` 注释，并将  `cgi.fix_pathinfo=1` 改为 `cgi.fix_pathinfo=0`
 
 
@@ -183,16 +183,24 @@ $ composer 查看composer安装是否成功
 
 
 #### 安装 php redis 扩展
+* 更推荐 `sudo apt install php-redis`
+
 * https://github.com/phpredis/phpredis.git
     ```
     git clone https://github.com/phpredis/phpredis.git
     cd phpredis
+
     phpize
     ./configure
     make
     make test
     sudo make install # 这一步注意观察 redis.so 生成的目录. 一般来说会自动分配好
     sudo vim /etc/php/7.0/cli/conf.d/30-redis.ini # 写入内容 extension=redis.so
+
+    echo "extension = redis.so" | sudo tee -a /etc/php/7.0/mods-available/redis.ini
+    sudo ln -s /etc/php/7.0/mods-available/redis.ini /etc/php/7.0/fpm/conf.d/30-redis.ini
+    sudo ln -s /etc/php/7.0/mods-available/redis.ini /etc/php/7.0/cli/conf.d/30-redis.ini
+
     sudo service php7.0-fpm restart
     ```
 
@@ -235,3 +243,23 @@ $ composer 查看composer安装是否成功
         $tl=$redis->lrange("tutorial-list", 0, 5);
         var_dump($tl);
         ```
+
+### 安装 event 扩展
+```
+wget http://pecl.php.net/get/event-2.3.0.tgz
+tar -zxvf event-2.3.0.tgz
+cd event-2.3.0/
+
+sudo apt install libevent-dev
+sudo apt install pkg-config # 如果出现需要 Openssl 模块时
+
+phpize
+./configure
+make
+sudo make install
+
+echo "extension = event.so" | sudo tee -a /etc/php/7.0/mods-available/event.ini
+sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/fpm/conf.d/30-event.ini
+sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/cli/conf.d/30-event.ini
+sudo service php7.0-fpm restart
+```
