@@ -263,3 +263,21 @@ sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/fpm/conf.d/30-even
 sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/cli/conf.d/30-event.ini
 sudo service php7.0-fpm restart
 ```
+
+### MORE
+* php 手册下载： http://php.net/download-docs.php
+
+* 更多扩展，以及错误显示开启
+```
+sudo apt install php7.0-zip
+sudo apt install php7.0-bcmath
+
+sudo vim /etc/php/7.0/fpm/php.ini
+display_errors = On
+```
+
+* nginx 日志位置
+```
+access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
+```
