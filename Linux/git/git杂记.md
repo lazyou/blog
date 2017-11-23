@@ -7,7 +7,7 @@
 
 #### git 坑之 -- 换行符自动转换 （window 下应取消）
 * `git config --global core.autocrlf false` // 换行符自动转换
-*  `autocrlf = false` // 当前项目的 .git/config
+*  autocrlf = false` // 当前项目的 .git/config
 
 
 #### git 坑之 -- 文件名大小写敏感自动忽略 （window 下应取消
@@ -52,3 +52,12 @@ git stash pop
 #### 修改最后一次提交注释：
 * `git commit --amend -m"fix xxx"`
 * 问题： 如何修改更多提交注释？
+
+
+#### git 为不同项目设置独立的 name email
+* 编辑 .git/config 文件, 添加:
+```
+[user]
+    name = xxx
+    email = xxx@qq.com
+```    
