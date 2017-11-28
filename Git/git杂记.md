@@ -61,3 +61,11 @@ git stash pop
     name = xxx
     email = xxx@qq.com
 ```    
+
+
+#### 修改文件权限引起的 git 记录文件变化
+* git 默认会跟踪文件的权限修改，当我们使用chmod指令的时候，git也会把被修改权限的文件添加到被修改的状态
+
+* 编辑 `.git/config` 设置 `filemode=true`
+
+* 全局设置: `git config core.filemode false`
