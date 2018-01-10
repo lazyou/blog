@@ -271,7 +271,8 @@ sudo service php7.0-fpm restart
 ```
 sudo apt install php7.0-zip
 sudo apt install php7.0-bcmath
-
+sudo apt install php-bz2
+ 
 sudo vim /etc/php/7.0/fpm/php.ini
 display_errors = On
 ```
