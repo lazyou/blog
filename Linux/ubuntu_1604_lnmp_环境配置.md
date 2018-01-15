@@ -104,6 +104,8 @@
     }
     ```
 
+* **gzip** 开启: sudo vim /etc/nginx/nginx.conf, `Gzip Settings` 下面相关注释全部移除就是.
+
 * 修改 nginx 限制 post 表单上传大小:
     * `vim /etc/nginx/nginx.conf`
 
