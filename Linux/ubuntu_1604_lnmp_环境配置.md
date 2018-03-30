@@ -268,6 +268,52 @@ sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/cli/conf.d/30-even
 sudo service php7.0-fpm restart
 ```
 
+### 安装 libevent
+* TODO: 尚未尝试
+* 来源: https://stackoverflow.com/questions/23203056/how-do-you-install-libevent-for-php
+```sql
+* Install Libevent for PHP 5.X:
+    sudo apt-get install libevent-dev
+    sudo pecl install libevent-beta
+
+    sudo su
+    sudo echo 'extension=libevent.so' > /etc/php5/mods-available/libevent.ini
+    exit
+
+    sudo ln -s /etc/php5/mods-available/libevent.ini /etc/php5/fpm/conf.d/
+    sudo ln -s /etc/php5/mods-available/libevent.ini /etc/php5/cli/conf.d/
+
+    sudo service php5-fpm restart
+
+* Install Libevent for PHP 7.X:
+    At this time pecl package libevent is not available for php 7
+
+    https://pecl.php.net/package/libevent
+
+    So let's compile it.
+
+    Download master: https://github.com/expressif/pecl-event-libevent
+
+    Unpack to: /tmp/install_libevent
+
+    cd /tmp/install_libevent/pecl-event-libevent-master
+    sudo phpize
+    sudo ./configure
+    After this step scroll our console window and try find any Warnings or Errors. I got one warning - required to install re2c package.
+
+    sudo make
+    sudo make install
+
+    sudo su
+    sudo echo 'extension=libevent.so' > /etc/php/7.0/mods-available/libevent.ini
+    exit
+
+    sudo ln -s /etc/php/7.0/mods-available/libevent.ini /etc/php/7.0/fpm/conf.d/20-libevent.ini
+    sudo ln -s /etc/php/7.0/mods-available/libevent.ini /etc/php/7.0/cli/conf.d/20-libevent.ini
+
+    sudo service php7.0-fpm restart
+```
+
 ### MORE
 * php 手册下载： http://php.net/download-docs.php
 
