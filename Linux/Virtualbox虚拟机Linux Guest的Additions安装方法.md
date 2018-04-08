@@ -14,6 +14,9 @@
         AUTORUN.INF  runasroot.sh            VBoxWindowsAdditions.exe
         autorun.sh   VBoxLinuxAdditions.run  VBoxWindowsAdditions-x86.exe
         ```
+
+    * 先安装 gcc: `sudo apt install gcc make`
+
     * 里面有 `VBoxLinuxAdditions.run` 这一项，直接运行即可: `sudo sh ./VBoxLinuxAdditions.run`
 
     * 安装后，`reboot` 一下就可以了。
@@ -21,6 +24,8 @@
 
 ### 把 window 下的目录共享文件夹到 virtualbox 的 linux 系统下
 * http://blog.csdn.net/lydyangliu/article/details/12278945
+
+* 现在虚拟机的 `/mnt` 下面创建要挂载的目录, 例如 `codes`
 
 * 现在虚拟机的设置 => 共享文件夹 分配要挂载的目录.
 
