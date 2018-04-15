@@ -152,3 +152,28 @@
 * 参数:
     * -p 递归删除目录 dirname，当子目录删除后其父目录为空时，也一同被删除。如果整个路径被删除或者由于某种原因保留部分路径，则系统在标准输出上显示相应的信息。
     * -v, --verbose  显示指令执行过程
+
+
+### 7. mv
+* mv 命令是 move 的缩写，可以用来移动文件或者将文件 __改名__（move (rename) files）
+* 格式:
+    ```sh
+    mv [OPTION]... [-T] SOURCE DEST
+    mv [OPTION]... SOURCE... DIRECTORY
+    mv [OPTION]... -t DIRECTORY SOURCE...
+    ```
+* 常用参数:
+    * -b ：若需覆盖文件，则覆盖前先行备份
+    * -f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖
+    * -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖
+    * -u ：若目标文件已经存在，且 source 比较新，才会更新(update)
+    * -t ： –target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定 mv 的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后
+* 常用范例:
+    * 文件改名: `mv test.log test1.txt`
+    * 移动多个文件: 
+        * `mv log1.txt log2.txt log3.txt test3` 
+        * `mv -t /opt/soft/test/test4/ log1.txt log2.txt  log3.txt`
+    * 目录的移动: `mv dir1 dir2` 并没有要求目录为空才能执行
+    * 将文件file1改名为file2，如果file2已经存在，则询问是否覆盖: `mv -i log1.txt log2.txt`
+    * 将文件file1改名为file2，即使file2存在，也是直接覆盖掉: `mv -f log3.txt log2.txt`
+    * 移动当前文件夹下的所有文件到上一级目录: `mv * ../`
