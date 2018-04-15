@@ -207,3 +207,17 @@
     * -d 　使用指定的日期时间，而非现在的时间。 
     * -m   或--time=mtime或--time=modify 　只更改变动时间。
     * -t 　使用指定的日期时间，而非现在的时间。
+
+
+### 10. cat
+* cat 是 catenate 的缩写
+* 格式: `cat [OPTION]... [FILE]...`
+* cat主要有三大功能：
+    1. 一次显示整个文件: `cat filename`
+    2. 从键盘创建一个文件: `cat > filename` 只能创建新文件,不能编辑已有文件
+    3. 将几个文件合并为一个文件: `cat file1 file2 > file`
+* 参数:
+    * -b, --number-nonblank    对非空输出行编号
+    * -E, --show-ends          在每行结束处显示 $
+    * -n, --number     对输出的所有行编号,由1开始对所有输出的行数编号
+    * -s, --squeeze-blank  有连续两行以上的空白行，就代换为一行的空白行 
