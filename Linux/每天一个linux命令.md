@@ -124,3 +124,22 @@
     * 递归创建多个目录: `mkdir -p test2/test22`
     * 创建权限为777的目录: `mkdir -m 777 test3`
 
+
+### 5. rm
+* rm 是 remove 的缩写
+* 功能: 删除一个目录中的一个或多个文件或目录，如果没有使用 `-r` 选项，则 rm 不会删除目录。如果使用 rm 来删除文件，通常仍可以将该 __文件恢复__ 原状
+* 格式: `rm [OPTION]... [FILE]...`
+* 常用参数:
+    * -f, --force    忽略不存在的文件，从不给出提示
+    * -i, --interactive 进行交互式删除
+    * -r, -R, --recursive   指示rm将参数中列出的全部目录和子目录均递归地删除
+* 常用范例:
+    * 删除任何.log文件；删除前逐一询问确认: `rm -i *.log`
+    * 将 test1子目录及子目录中所有档案删除: `rm -r test1`
+    * 自定义 __回收站__ 功能: 
+        ```sh
+        myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D;  mv "$@" $D && echo "moved to $D ok"; }
+        alias rm='myrm'
+        touch 1.log 2.log 3.log
+        rm [123].log # 会有提醒
+        ```
