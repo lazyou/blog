@@ -177,3 +177,24 @@
     * 将文件file1改名为file2，如果file2已经存在，则询问是否覆盖: `mv -i log1.txt log2.txt`
     * 将文件file1改名为file2，即使file2存在，也是直接覆盖掉: `mv -f log3.txt log2.txt`
     * 移动当前文件夹下的所有文件到上一级目录: `mv * ../`
+
+
+### 8. cp
+* cp 是 copy 是缩写, 用来复制文件或者目录
+    * shell会设置一个别名，在命令行下复制文件时，如果目标文件已经存在，就会询问是否覆盖，不管你是否使用-i参数
+    * 但是如果是在shell脚本中执行cp时，没有-i参数时不会询问是否覆盖
+* 格式:
+    ```
+    Usage: cp [OPTION]... [-T] SOURCE DEST
+    or:  cp [OPTION]... SOURCE... DIRECTORY
+    or:  cp [OPTION]... -t DIRECTORY SOURCE...
+    Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+    ```
+* 常用参数:
+    * –backup[=CONTROL    为每个已存在的目标文件创建备份
+    * -b                类似–backup 但不接受参数
+    * –copy-contents        在递归处理是复制特殊文件内容
+    * -f, –force        如果目标文件无法打开则将其移除并重试(当 -n 选项存在时则不需再选此项)
+    * -i, –interactive        覆盖前询问(使前面的 -n 选项失效)
+    * -H                跟随源文件中的命令行符号链接
+    * -l, –link            链接文件而不复制
