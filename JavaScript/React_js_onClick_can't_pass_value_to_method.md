@@ -17,7 +17,7 @@ return (
 
 
 ### Better Way
-*E xtract it into a sub-component. The problem with using an arrow function in the render call is it will create a new function every time, which ends up causing unneeded re-renders.
+* E xtract it into a sub-component. The problem with using an arrow function in the render call is it will create a new function every time, which ends up causing unneeded re-renders.
 
 * If you create a sub-component, you can pass handler and use props as the arguments, which will then re-render only when the props change (because the handler reference now never changes):
 
