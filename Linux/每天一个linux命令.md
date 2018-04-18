@@ -332,3 +332,8 @@
 * 范例:
     * 查找和pwd相关的所有文件: `locate pwd`
     * 搜索etc目录下所有以sh开头的文件: `locate /etc/sh`
+
+
+### 19. find
+* 功能:
+* 格式: `find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec|time] [path...] [expression]`
