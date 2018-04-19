@@ -335,5 +335,34 @@
 
 
 ### 19. find
-* 功能:
-* 格式: `find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec|time] [path...] [expression]`
+* 功能: 用于在文件树种查找文件，并作出相应的处理
+* 格式: 
+    * `find pathname -options [-print -exec -ok ...]`
+    * `find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec|time] [path...] [expression]`
+* 命令参数：
+    * pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。
+    * -print： find命令将匹配的文件输出到标准输出。
+    * -exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } ;，注意{   }和；之间的空格。
+    * -ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。
+* 命令选项：
+    * -name   按照文件名查找文件。
+    * -perm   按照文件权限来查找文件。
+    * -prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。
+    * -user   按照文件属主来查找文件。
+    * -group  按照文件所属的组来查找文件。
+    * -mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。
+    * -type  查找某一类型的文件，诸如：
+        * b - 块设备文件。
+        * d - 目录。
+        * c - 字符设备文件。
+        * p - 管道文件。
+        * l - 符号链接文件。
+        * f - 普通文件。
+    * -size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先查找当前目录中的文件，然后再在其子目录中查找。
+* 范例:
+    * 查找指定时间内修改过的文件: `find -atime -2`
+    * 根据关键字查找: `find . -name "*.log"`
+    * 按照目录或文件的权限来查找文件: `find /opt/soft/test/ -perm 777`
+    * 按类型查找: `find . -type f -name "*.log"`
+    * 查找当前所有目录并排序: `find . -type d | sort`
+    * 按大小查找文件: `find . -size +1000c -print`
