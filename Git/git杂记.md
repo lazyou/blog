@@ -7,7 +7,7 @@
 
 #### git 坑之 -- 换行符自动转换 （window 下应取消）
 * `git config --global core.autocrlf false` // 换行符自动转换
-*  autocrlf = false` // 当前项目的 .git/config
+*  autocrlf = false // 当前项目的 .git/config
 
 
 #### git 坑之 -- 文件名大小写敏感自动忽略 （window 下应取消
@@ -29,6 +29,22 @@ git pull origin master // 如果第5步没有下载就继续这一步.
 vim .git/config // 在 url 上配置用户名
 url=htt://用户名@115.29.../meishenghuo/web.git
 ```
+
+
+#### 免输入密码设置
+* 方法一, 全局设置: `git config --global credential.helper store`
+
+* 方法二, 设置在项目的 url 上: `vim .git/config, 然后设置 https://{username}:{password}@github.com`
+
+
+#### gitk 等查看 log 出现乱码
+* 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置: 
+```
+[gui]
+  encoding = utf-8
+[i18n]
+  commitencoding = utf-8
+ ```
 
 
 #### 暂存
