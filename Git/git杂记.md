@@ -10,6 +10,10 @@
 *  autocrlf = false // 当前项目的 .git/config
 
 
+ #### 中文路径显示乱码解决
+ * `git config --global core.quotepath false
+
+
 #### git 坑之 -- 文件名大小写敏感自动忽略 （window 下应取消
 * `git config core.ignorecase false`
 
