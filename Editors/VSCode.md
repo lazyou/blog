@@ -7,11 +7,13 @@
 
 ```
 {
-    "editor.fontFamily": "Consolas",
+    "editor.fontFamily": "Monaco",
     "editor.fontSize": 14,
     "editor.insertSpaces": true, // 空格代替tab
     "editor.detectIndentation": false, // 是否监听源文件 缩进
     "editor.wordWrap": "on",
+    "terminal.integrated.fontFamily": "Monaco",
+    "terminal.integrated.fontSize": 13,
     "workbench.colorTheme": "Atom One Dark",
     "window.zoomLevel": 0,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
