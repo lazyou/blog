@@ -1,8 +1,11 @@
 ## gogs 部署
 * 官网: https://gogs.io/docs/installation/install_from_binary
+
 * 参考:
     * https://blog.mynook.info/post/host-your-own-git-server-using-gogs/
     * http://static.markbest.site/blog/95.html
+
+* 常见问题: https://gogs.io/docs/intro/faqs
 
 ### 步骤:
     * 新建用户；
