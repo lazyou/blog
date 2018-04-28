@@ -29,3 +29,7 @@
 ```
 
 * 常用插件： **待补充**
+
+
+### 使用 VSCode 进行 Laravel 开发
+* https://laravel-china.org/articles/6895/vscode-build-laravel-development-environment
