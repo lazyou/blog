@@ -28,7 +28,15 @@
 }
 ```
 
-* 常用插件： **待补充**
+* 主题:
+    * Atom One Dark Theme
+
+* 插件:
+   
+    * DotENV
+    * phpfmt
+    * TODO Highlight
+    * PHP IntelliSense (感觉没啥用啊)
 
 
 ### 使用 VSCode 进行 Laravel 开发
@@ -40,8 +48,8 @@
 
 * 设置备份:
 ```
-    "[php]": {
-        "editor.formatOnSave": true
-    },
-    "phpfmt.php_bin": "D:\\software\\php7\\php.exe",
+"[php]": {
+    "editor.formatOnSave": true
+},
+"phpfmt.php_bin": "D:\\software\\php7\\php.exe",
 ```
