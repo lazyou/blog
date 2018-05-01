@@ -33,3 +33,15 @@
 
 ### 使用 VSCode 进行 Laravel 开发
 * https://laravel-china.org/articles/6895/vscode-build-laravel-development-environment
+
+
+### PHP 格式化插件
+* phpfmt - PHP formatter: https://marketplace.visualstudio.com/items?itemName=kokororin.vscode-phpfmt
+
+* 设置备份:
+```
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "phpfmt.php_bin": "D:\\software\\php7\\php.exe",
+```
