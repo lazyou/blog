@@ -21,11 +21,13 @@
 <VirtualHost *:80>
 DocumentRoot D:/Website/jscookie/
 ServerName www.localhostjscookie.com
+ServerAlias alias.localhostjscookie.com
 </VirtualHost> 
 
 <VirtualHost  *:80>
 DocumentRoot D:/Website/quickpay/
 ServerName www.localhost.com
+ServerAlias alias.localhost.com
 </VirtualHost> 
 
 <VirtualHost  *:80>
@@ -53,11 +55,13 @@ ServerName localhost
 <VirtualHost  127.0.0.1:80>    #注意这里写的是ip
 DocumentRoot D:/Website/quickpay/
 ServerName www.localhost.com
+ServerAlias alias.localhost.com
 </VirtualHost> 
 
 <VirtualHost 127.0.0.2:80>
 DocumentRoot D:/Website/jscookie/
 ServerName www.localhostjscookie.com
+ServerAlias alias.localhostjscookie.com
 </VirtualHost> 
 
 <VirtualHost  127.0.0.3:80>
