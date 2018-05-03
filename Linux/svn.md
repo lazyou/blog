@@ -12,7 +12,7 @@
 ### 创建SVN版本库
 ```shell
 sudo mkdir /home/svn
-# 创建某个仓库, 每个仓库需要独立创建文件夹
+# 创建某个版本库, 每个版本库需要独立创建文件夹
 sudo mkdir /home/svn/repository
 sudo chmod -R 777 /home/svn/repository
 sudo svnadmin create /home/svn/repository
@@ -26,10 +26,10 @@ sudo chmod -R 777 db /home/svn/repository/conf
     sudo vim /home/svn/repository/conf/svnserve.conf
 
     移除注释:
-    anon-access = read
-    auth-access = write
-
-    password-db = passwd
+    anon-access = none  # 匿名用户访问权限:无
+    auth-access = write # 普通用户访问权限:写
+    authz-db = authz    # 引入权限配置文件
+    password-db = passwd # 引入密码文件
     ```
 
 * 添加用户, 设置用户组和用户组权限:
@@ -56,7 +56,15 @@ sudo chmod -R 777 db /home/svn/repository/conf
 ### 客户端访问SVN服务器
 * 下载 TortoiseSVN 客户端
 
-* 访问 repository 仓库: `svn://服务器ip/repository`
+* 访问 repository 版本库: `svn://服务器ip/repository`
+
+
+### hooks 自动同步 commit 到其它地方 (例如web目录)
+```sh
+cd /home/svn/repository/hooks/
+```
+
+* TODO: 未完待续
 
 
 ## 扩展知识
