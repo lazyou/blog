@@ -12,6 +12,7 @@
 ### 创建SVN版本库
 ```shell
 sudo mkdir /home/svn
+# 创建某个仓库, 每个仓库需要独立创建文件夹
 sudo mkdir /home/svn/repository
 sudo chmod -R 777 /home/svn/repository
 sudo svnadmin create /home/svn/repository
@@ -54,6 +55,8 @@ sudo chmod -R 777 db /home/svn/repository/conf
 
 ### 客户端访问SVN服务器
 * 下载 TortoiseSVN 客户端
+
+* 访问 repository 仓库: `svn://服务器ip/repository`
 
 
 ## 扩展知识
