@@ -314,6 +314,24 @@ sudo service php7.0-fpm restart
     sudo service php7.0-fpm restart
 ```
 
+
+### mongodb 安装以及PHP扩展
+```sh
+sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev libsslcommon2-dev
+add-apt-repository ppa:ondrej/php
+sudo apt-get update && sudo apt-get upgrade
+sudo apt install php-mongodb
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+$ sudo apt-get update
+$ sudo apt-get install mongodb-org
+$ sudo apt install mongodb-server  
+$ sudo service mongodb start | status
+默认端口是 27017
+```
+
 ### MORE
 * php 手册下载： http://php.net/download-docs.php
 
