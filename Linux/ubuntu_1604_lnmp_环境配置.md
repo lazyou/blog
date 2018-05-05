@@ -328,6 +328,10 @@ sudo make install
 sudo echo 'extension=swoole.so' > /etc/php/7.0/mods-available/swoole.ini
 sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/fpm/conf.d/20-swoole.ini
 sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/cli/conf.d/20-swoole.ini
+
+# 使用时出现问题: WARNING swSignalfd_setup: signalfd() failed. Error: Function not implemented[38]
+* 解决: https://github.com/swoole/swoole-src/issues/1134
+    * 在 `./configure` 后，将 config.h 中 `#define HAVE_SIGNALFD 1` 行注释掉，再进行编译安装操作后，解决了此问题
 ```
 
 
