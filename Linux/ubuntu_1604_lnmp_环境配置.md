@@ -315,6 +315,22 @@ sudo service php7.0-fpm restart
 ```
 
 
+### 编译安装 swoole 扩展
+```sh
+sudo apt install php7.0-dev
+wget https://github.com/swoole/swoole-src/archive/v2.1.3.zip
+unzip v2.1.3.zip
+cd swoole
+phpize
+./configure
+make 
+sudo make install
+sudo echo 'extension=swoole.so' > /etc/php/7.0/mods-available/swoole.ini
+sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/fpm/conf.d/20-swoole.ini
+sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/cli/conf.d/20-swoole.ini
+```
+
+
 ### mongodb 安装以及PHP扩展
 ```sh
 sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev libsslcommon2-dev
