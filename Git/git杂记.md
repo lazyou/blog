@@ -89,3 +89,11 @@ git stash pop
 * 编辑 `.git/config` 设置 `filemode=true`
 
 * 全局设置: `git config core.filemode false`
+
+
+### git 批量删除文件夹和文件
+```
+1. 删除文件 || 目录
+2. git rm <文件> || git rm * -r (到要删除的目录下)
+3. git add . || git commit -m"clear"
+```
