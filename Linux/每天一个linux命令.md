@@ -366,3 +366,19 @@
     * 按类型查找: `find . -type f -name "*.log"`
     * 查找当前所有目录并排序: `find . -type d | sort`
     * 按大小查找文件: `find . -size +1000c -print`
+
+
+### 20. find命令之exec
+* TODO: 略, 貌似没啥用, 先知道一下
+
+* 在目录中查找更改时间在n日以前的文件并删除它们，在删除之前先给出提示: 
+    * `find . -name "*.log" -mtime +5 -ok rm {} \;`
+
+* -exec中使用grep命令:
+    * `find /etc -name "passwd*" -exec grep "root" {} \;`
+
+* 查找文件移动到指定目录:
+    * `find . -name "*.log" -exec mv {} .. \;`
+
+* 用exec选项执行cp命令:
+    * `find . -name "*.log" -exec cp {} test3 \;`
