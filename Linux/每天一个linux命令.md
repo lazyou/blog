@@ -382,3 +382,6 @@
 
 * 用exec选项执行cp命令:
     * `find . -name "*.log" -exec cp {} test3 \;`
+
+
+### 21. find命令之xargs
