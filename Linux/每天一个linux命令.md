@@ -385,3 +385,33 @@
 
 
 ### 21. find命令之xargs
+* TODO: 略, 貌似没啥用, 先知道一下
+
+
+### 22. find 命令的参数详解
+* 1．使用name选项: 文件名字模式
+    * find ~ -name "*.log" -print 
+    * find . -name "[A-Z]*" -print  
+    * find . -name "[a-z]*[4-9].log" -print
+
+* 2．用perm选项: 文件权限模式
+    * `find . -perm 755 -print`
+
+* 3．用prune选项: 忽略某个目录
+    * `find test -path "test/test3" -prune -o -print`
+
+* 5．使用user和nouser选项：
+    * `find ~ -user peida -print`
+    * `find /home -nouser -print`
+
+* 6．使用group和nogroup选项:
+
+* 7．按照更改时间或访问时间等查找文件：mtime, atime, ctime 选项
+    * 查找更改时间在5日以内的文件: `find / -mtime -5 -print`
+
+* 9．使用type选项：
+    * 查找目录类型: `find /etc -type d -print `
+    * 目录以外的类型: `find . ! -type d -print`
+
+* 10．使用size选项：
+    * 查找文件大于1 M字节的: `find . -size +1000000c -print`
