@@ -8,6 +8,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set fencs=utf-8,gbk
 ```
 
 ### VIM 打开中文文件乱码

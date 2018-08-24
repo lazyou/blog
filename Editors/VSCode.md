@@ -4,8 +4,7 @@
 * 语言设置: F1 -> 语言设置 -> 修改为en-US -> 保存重启 VSCode
 
 * 设置备份
-
-```
+```json
 {
     "editor.fontFamily": "Monaco",
     "editor.fontSize": 14,
@@ -32,7 +31,6 @@
     * Atom One Dark Theme
 
 * 插件:
-   
     * DotENV
     * phpfmt
     * TODO Highlight
