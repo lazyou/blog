@@ -34,6 +34,7 @@
     * DotENV
     * phpfmt
     * TODO Highlight
+    * Todo Tree
     * PHP IntelliSense (感觉没啥用啊)
 
 
@@ -45,9 +46,11 @@
 * phpfmt - PHP formatter: https://marketplace.visualstudio.com/items?itemName=kokororin.vscode-phpfmt
 
 * 设置备份:
-```
-"[php]": {
-    "editor.formatOnSave": true
-},
-"phpfmt.php_bin": "D:\\software\\php7\\php.exe",
+```json
+{
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "phpfmt.php_bin": "D:\\software\\php7\\php.exe",
+}
 ```
