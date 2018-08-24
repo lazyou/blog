@@ -1,5 +1,9 @@
+## 更多 tips
+* https://phpstorm.tips/tips/
+
+
 ## phpstorm 快捷键
-* 文件跳转: `Shift + Shift`
+* 文件跳转: `Shift + Shift` (或者自定义 Search everywhere)
 
 
 * 多光标选择器:
