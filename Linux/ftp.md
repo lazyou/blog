@@ -37,6 +37,7 @@ write_enable=YES	        Give FTP users permissions to write data
 connect_from_port_20=NO	    Port 20 need to be turned off. It makes VSftpd run less privileged
 chroot_local_user=YES	    Chroot everyone
 local_umask=022	            Set umask to 022, to make sure that all the files (644) and folders (755) you upload, get the proper permissions
+allow_writeable_chroot=YES
 ```
 
 * Check vsftpd.conf man pages, for all configuration options.
