@@ -13,10 +13,15 @@
 
 * powerline 安装： https://github.com/powerline/powerline OR `sudo apt install powerline`
 
-
-* zsh-autosuggestions 插件 (然而配色不如 fish 来得直观)
+* zsh-autosuggestions 插件
     * https://github.com/zsh-users/zsh-autosuggestions
 
+    * `cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-autosuggestions`
+
+    * `vim  ~/.zshrc` 设置 `plugins=(zsh-autosuggestions)`
+
+    * 提示字符颜色设置： `.zshrc` 设置`ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'`
+        * `ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'` 直接设置颜色也行
 
 ## tips
 * tab 自动补全
