@@ -60,6 +60,11 @@ sudo apt-get install sublime-text
 }
 ```
 
+* 每次重启sublime的时候非常占cpu： 因为重启时会对整个项目重新 index files 做索引
+	* http://www.sublimetext.com/blog/articles/file-indexing
+
+* sublime支持中文： http://blog.csdn.net/cywosp/article/details/32350899
+
 * 常用插件: https://packagecontrol.io/installation
 ```
 - Emmet  
