@@ -1,3 +1,9 @@
+## 安装
+* `apt install redis-server`
+
+## GUI 客户端
+* `sudo snap install redis-desktop-manager`
+
 ### 开启远程 redis 服务:
 * `sudo vim /etc/redis/redis.conf`
 
