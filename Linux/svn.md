@@ -1,3 +1,5 @@
+* SVN 是Subversion 的缩写
+
 ## Ubuntu 14.04下搭建SVN服务器（SVN Server）
 * https://www.linuxidc.com/Linux/2016-08/133961.htm
 
