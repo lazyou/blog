@@ -1,9 +1,18 @@
-# 保存到 ~/.config/fish/config.fish 然后重启 fish
-# 来源: https://coderwall.com/p/ycvusg/show-git-branch-name-in-fish-shell
-# 针对修改了路径为完成的路径
-# lazyou 2017.08.18
+## fish
+* fish: https://fishshell.com/
 
-```
+* `sudo apt install fish`
+
+* 设置默认打开, 待补充
+
+
+## 终端显示配置
+* 保存到 `~/.config/fish/config.fish` 然后重启 fish
+
+* 来源: https://coderwall.com/p/ycvusg/show-git-branch-name-in-fish-shell
+
+* 针对修改了路径为完成的路径
+```sh
 function fish_prompt --description 'Write out the prompt'
     # Just calculate these once, to save a few cycles when displaying the prompt
     if not set -q __fish_prompt_hostname
