@@ -1,3 +1,8 @@
+## scp
+* scp是 secure copy 的缩写
+
+
+## 介绍
 http://www.cnblogs.com/jiangyao/archive/2011/01/26/1945570.html
 
 在linux下一般用 scp 这个命令来通过ssh传输文件。
