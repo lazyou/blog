@@ -22,3 +22,5 @@ server {
     }
 }
 ```
+
+* 当然。proxy 还有其他的参数，比如：`proxy_set_header` 用来设置 `header` 头部信息参数转发等，等用了可以仔细看看。
