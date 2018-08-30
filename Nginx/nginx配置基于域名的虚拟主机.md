@@ -4,7 +4,7 @@
 127.0.0.1 www.test.test
 ```
 
-* 默认放在 `/etc/nginx/conf.d` 命名 `test.conf`配置
+* 默认放在 `/etc/nginx/conf.d` 目录下命名例如 `test.conf` 配置
 ```conf
 server {
     listen 80;
