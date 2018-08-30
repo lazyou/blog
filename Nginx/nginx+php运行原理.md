@@ -22,3 +22,36 @@
 listen = /run/php/php7.0-fpm.sock
 ; listen = 127.0.0.1:9000
 ```
+
+
+## 深入理解PHP之：Nginx 与 FPM 的工作机制
+* https://www.imooc.com/article/38194
+
+
+* 要说 Nginx 与 PHP 是如何协同工作的，首先得说 `CGI (Common Gateway Interface)` 和 `FastCGI` 这两个协议。
+
+* CGI 的缺点： CGI 有一个致命的缺点，那就是每处理一个请求都需要 fork 一个全新的进程
+
+
+* 所以有了 FastCGI: FastCGI，顾名思义为更快的 CGI，它允许在一个进程内处理多个请求，而不是一个请求处理完毕就直接结束进程，性能上有了很大的提高。
+
+
+* 至于 `FPM (FastCGI Process Manager)`，它是 FastCGI 的实现，任何实现了 FastCGI 协议的 Web Server 都能够与之通信。
+    * FPM 是一个 PHP 进程管理器，包含 `master 进程` 和 `worker 进程` 两种进程：
+        * _master 进程_ 只有一个，负责监听端口，接收来自 Web Server 的请求
+        * _worker 进程_ 则一般有多个 (具体数量根据实际需要配置)，每个进程内部都嵌入了一个 PHP 解释器，__是 PHP 代码真正执行的地方__，下图是我本机上 fpm 的进程情况，1一个 master 进程，3个 worker 进程：
+
+    * 从 FPM 接收到请求，到处理完毕，其具体的流程如下：
+        1. FPM 的 master 进程接收到请求;
+        2. master 进程根据配置指派特定的 worker 进程进行请求处理，如果没有可用进程，返回错误，这也是我们配合 Nginx 遇到502错误比较多的原因;
+        3. worker 进程处理请求，如果超时，返回504错误;
+        4. 请求处理结束，返回结果
+
+
+* Nginx 又是如何发送请求给 fpm: 代理 (走端口 或者 走socket通信)
+    * Nginx 不仅仅是一个 Web 服务器，也是一个功能强大的 _Proxy 服务器_，除了进行 http 请求的代理，也可以进行许多其他协议请求的代理，包括本文与 fpm 相关的 fastcgi 协议。
+
+    * 为了能够使 Nginx 理解 fastcgi 协议，_Nginx 提供了 fastcgi 模块来将 http 请求映射为对应的 fastcgi 请求_
+
+    * Nginx 的 fastcgi 模块提供了 fastcgi_param 指令来主要处理这些映射关系，下面 Ubuntu 下 Nginx 的一个配置文件，其主要完成的工作是 _将 Nginx 中的变量翻译成 PHP 中能够理解的变量_。
+        * 默认 fastcgi_param 指令配置在 `/etc/nginx/fastcgi_params` 或者 `/etc/nginx/fastcgi.conf`
