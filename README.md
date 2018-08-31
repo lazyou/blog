@@ -77,7 +77,8 @@
 * PHP
     * 规范： https://psr.phphub.org/
     * PHPDoc: https://www.cnblogs.com/chunguang/p/5717629.html
-    * PDO： 持久化连接设置 http://php.net/manual/zh/pdo.connections.php
+    * PDO： 持久化连接设置 http://php.net/manual/zh/pdo.connections.php 
+        * 手册还建议在使用PDO ODBC驱动程序时不要使用持久连接，因为它可能会妨碍ODBC连接池化进程。
     * 生成器, yield, 协程:
         * https://www.cnblogs.com/tingyugetc/p/6347286.html
         * http://www.laruence.com/2015/05/28/3038.html
