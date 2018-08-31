@@ -85,11 +85,13 @@ ps aux | grep supervisord #查看 supervisord 是否在运行
 ### supervisorctl 配置
 * 默认放在： `/etc/supervisor/conf.d/*.conf` (/etc/supervisor/supervisord.conf 里可看到这行配置项 [include])
 
-* `sudo supervisorctl reload`
+* 【不推荐】`sudo supervisorctl reload`
 
-* `sudo supervisorctl 或者 sudo supervisorctl -c /etc/supervisor/supervisord.conf` 进入 supervisorctl 的 shell 界面
+* 【推荐】`sudo supervisorctl 或者 sudo supervisorctl -c /etc/supervisor/supervisord.conf` 进入 supervisorctl 的 shell 界面
 ```shell
 > help
+> reload name # 重载某个队列
+> reload name:*
 > status    # 查看程序状态
 > stop hello   # 关闭 hello 程序
 > start hello  # 启动 hello 程序
@@ -135,3 +137,21 @@ sudo supervisorctl update
     * 启动： `sudo supervisorctl start hello`
 
     * 查看： `ps aux | grep hello` (可以 sudo kill 这个进程发现会立即自动再开启此进程)
+
+
+### 常见问题
+* 解决 supevisor 提示 socket error 错误: http://pycode.cc/supervisor-socket-error/
+```shell
+今天给自己的一个新服务配置使用 supervisor，apt 或者 setuptools 均可安装，过程不表。
+
+安装完成后，将配置文件拷贝到 /etc/supervisor/conf.d 中，然后使用 supervisorctl reload 却得到报错提示：
+
+error: <class 'socket.error'>, [Errno 2] No such file or directory: file: /usr/lib/python2.7/socket.py line: 228  
+经过搜索，在 stackOverFlow 上找到了解决办法：
+
+在运行 reload 命令前，先运行如下两个命令
+
+sudo supervisord -c /etc/supervisor/supervisord.conf  
+sudo supervisorctl -c /etc/supervisor/supervisord.conf  
+即可解决 socket error，然后再使用 reload 命令，就可以正常的启动 supervisor 了。
+````
