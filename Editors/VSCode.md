@@ -15,7 +15,9 @@
     "terminal.integrated.fontSize": 13,
     "workbench.colorTheme": "Atom One Dark",
     "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": true, // 自动换行 
@@ -23,7 +25,16 @@
     "files.associations": {
         "*.gtpl": "html"
     },
-    "git.path": "E:\\Program Files\\Git\\bin\\git.exe"
+    "git.path": "E:\\Program Files\\Git\\bin\\git.exe",
+    // 插件添加新关键字
+    "todohighlight.keywords": [
+    {
+        "text": "NOTE:",
+        "color": "#ff0000",
+        "backgroundColor": "yellow",
+        "overviewRulerColor": "grey"
+    },
+]
 }
 ```
 
