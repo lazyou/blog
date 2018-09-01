@@ -43,8 +43,9 @@ events {
 
 * `use` 用来指定Nginx的 __工作模式__。Nginx 支持的工作模式有 `select、poll、kqueue、epoll、rtsig` 和 `/dev/poll`。其中 select 和 poll 都是标准的工作模式，kqueue 和 epoll 是高效的工作模式，不同的是 `epoll` 用在Linux平台上，而 kqueue 用在BSD系统中，因为Mac基于BSD,所以Mac也得用这个模式，对于Linux系统，epoll 工作模式是首选。
 
-* `worker_connections` 用于定义 __Nginx每个进程的最大连接数__，即接收前端的最大请求数，默认是 1024。最大客户端连接数由 `worker_processes` 和 `worker_connections` 决定，即 `Max_clients=worker_processes*worker_connections`，在作为反向代理时，Max_clients 变为： `Max_clients = worker_processes * worker_connections/4`。 
-
+* `worker_connections` 用于定义 __Nginx每个进程的最大连接数__，即接收前端的最大请求数，默认是 1024。最大客户端连接数由 `worker_processes` 和 `worker_connections` 决定，即 `Max_clients=worker_processes*worker_connections`，在作为反向代理时，Max_clients 变为： `Max_clients = worker_processes * worker_connections/4`。
+    * NOTE: 重要参数
+    
 * 进程的最大连接数受 _Linux系统进程的最大打开文件数限制_，在执行操作系统命令 `ulimit -n 65536` 后 `worker_connections` 的设置才能生效。
 
 
