@@ -1,6 +1,9 @@
 ## 更多 tips
 * https://phpstorm.tips/tips/
 
+* tip 分享： https://laravel-china.org/topics/5279/lets-share-the-odd-tricks-of-phpstorm-to-improve-efficiency
+
+* https://segmentfault.com/a/1190000015716373
 
 ## phpstorm 快捷键
 * 文件跳转: `Shift + Shift` (或者自定义 Search everywhere)
