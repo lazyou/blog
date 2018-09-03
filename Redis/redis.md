@@ -1,6 +1,9 @@
 ## 安装
 * `apt install redis-server`
 
+## 日志
+* `cat /var/log/redis/redis-server.log`
+
 ## GUI 客户端
 * `sudo snap install redis-desktop-manager`
 
