@@ -3,6 +3,12 @@
 
 * 安装: https://www.sublimetext.com/docs/3/linux_repositories.html
 
+* 解决 ubuntu 下不能使用中文输入法: https://github.com/lyfeyaj/sublime-text-imfix
+```
+git clone https://github.com/lyfeyaj/sublime-text-imfix.git
+cd sublime-text-imfix
+./sublime-imfix
+```
 
 ### ppa 安装 sublime
 ```sh
