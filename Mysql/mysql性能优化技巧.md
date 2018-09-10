@@ -6,6 +6,13 @@
 #### 查看 MySQL 服务器运行的状态值
 * `show status`
 * 主要关注 "Queries"、"Threads_connected" 和 "Threads_running" 的值，即查询次数、线程连接数和线程运行数
+```sql
+SHOW STATUS 
+WHERE
+	Variable_name LIKE "Queries" 
+	OR Variable_name LIKE "Threads_connected" 
+	OR Variable_name LIKE "Threads_running";
+```    
 
 * 通过执行如下脚本监控 MySQL 服务器运行的状态值
 ```sh
@@ -26,7 +33,7 @@ done
 #### 获取需要优化的 SQL 语句
 *  方式一：查看运行的线程: `show processlist`
     * 返回的 State 的值是我们判断性能好坏的关键，其值出现如下内容，则该行记录的 SQL 语句需要优化：
-    ```
+    ```conf
     Converting HEAP to MyISAM # 查询结果太大时，把结果放到磁盘，严重
     Create tmp table #创建临时表，严重
     Copying to tmp table on disk  #把内存临时表复制到磁盘，严重
@@ -40,13 +47,14 @@ done
 * 方式二：开启慢查询日志:
     * `mysql --help | grep my.cnf` 查看配置所在
     * `sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf`, 添加如下配置:
-        ```
+        ```conf
         long_query_time = 1
+        slow_launch_time = 1 # 5.7 版本似乎是这个
         slow_query_log = 1
         slow_query_log_file = /var/lib/mysql/slow-query.log
         log_queries_not_using_indexes = 1 # 这个有待商榷
         ```
-        * 注意：slow_query_log_file 的路径不能随便写，否则 MySQL 服务器可能没有权限将日志文件写到指定的目录中。建议直接复制上文的路径。
+        * 注意： `slow_query_log_file` 的路径不能随便写，否则 MySQL 服务器可能没有权限将日志文件写到指定的目录中。建议直接复制上文的路径。
 
     * 重启 mysql 服务后生效
 
@@ -129,10 +137,10 @@ done
 
     * 查看执行的 SQL 列表: `show profiles;`
 
-    * 查询指定 ID 的执行详细信息: show profile for query Query_ID;
+    * 查询指定 ID 的执行详细信息: `show profile for query Query_ID;`
 
     * 获取 CPU、 Block IO 等信息:
-        ```
+        ```sql
         show profile block io,cpu for query Query_ID;
         show profile cpu,block io,memory,swaps,context switches,source for query Query_ID;
         show profile all for query Query_ID;
@@ -146,10 +154,10 @@ done
 
     2. 小表驱动大表，即小的数据集驱动大的数据集。如：以 A，B 两表为例，两表通过 id 字段进行关联。
         ```
-        当 B 表的数据集小于 A 表时，用 in 优化 exist；使用 in ，两表执行顺序是先查 B 表，再查 A 表
-        select * from A where id in (select id from B)
-        当 A 表的数据集小于 B 表时，用 exist 优化 in；使用 exists，两表执行顺序是先查 A 表，再查 B 表
-        select * from A where exists (select 1 from B where B.id = A.id)
+        当 B 表的数据集小于 A 表时，用 `in` 优化 `exist`；使用 `in` ，两表执行顺序是先查 B 表，再查 A 表
+        `select * from A where id in (select id from B)`
+        当 A 表的数据集小于 B 表时，用 `exist` 优化 `in`；使用 `exists`，两表执行顺序是先查 A 表，再查 B 表
+        `select * from A where exists (select 1 from B where B.id = A.id)`
         ```
 
     3. 一些情况下，可以使用连接代替子查询，因为使用 join，MySQL 不会在内存中创建临时表。
@@ -188,7 +196,7 @@ done
         1. 模糊查询时，以 % 开头
         2. 使用 or 时，如：字段1（非索引）or 字段2（索引）会导致索引失效。
         3. 使用复合索引时，不使用第一个索引列。 **复合索引的最左匹配原则**
-            index(a,b,c) ，以字段 a,b,c 作为复合索引为例：       
+            `index(a,b,c)` ，以字段 a,b,c 作为复合索引为例：       
 
 
 3. 数据库表结构设计
@@ -271,4 +279,3 @@ max_heap_table_size 最大内存表大小
         1. 选择 Performance Per Watt Optimized（DAPC）模式，发挥 CPU 最大性能
         2. 关闭 C1E 和 C States 等选项，提升 CPU 效率
         3. Memory Frequency（内存频率）选择 Maximum Performance
-        
