@@ -32,21 +32,21 @@
     * __读锁__ 会被阻塞写，但不会阻塞写; 而 __写锁__ 则会把读和写都阻塞
 
 
-#### 表锁–读锁
+### 表锁–读锁
 ```sql
 create table mylock (
     id int not null primary key auto_increment,
     name varchar(20)
 ) engine myisam;    // 这里用MyISAM存储引擎
 
-* 类似再建一个book表和
+* 类似再建一个book表
 
-【手动增加表锁】lock table 表名字 read(write), 表名字2 read(write), 其他;
-【释放锁】unlock tables;
-【查看表上加过的锁】show open tables;
+【手动增加表锁】 lock table 表名字 read(write), 表名字2 read(write), 其他;
+【释放锁】 unlock tables;
+【查看表上加过的锁】 show open tables [from dbname];
 
 mysql> lock table mylock read, book write;
-mysql> show open tables;
+mysql> show open tables; 
 +----------+-------+--------+-------------+
 | DATABASE | TABLE | In_use | Name_locked |
 +----------+-------+--------+-------------+
@@ -59,10 +59,13 @@ mysql> show open tables;
 ·In_use：表当前被查询使用的次数。如果该数为零，则表是打开的，但是当前没有被使用。
 ·Name_locked：表名称是否被锁定。名称锁定用于取消表或对表进行重命名等操作。
 
-mysql> update mylock set name='a2' where id=1;
-ERROR 1099(HY000): Table 'mylock' was locked with a READ lock and can't be updated
+mysql> update mylock set name='a2' where id=1; # TODO: 为什么我看到的不是这个效果
+"ERROR 1099(HY000): Table 'mylock' was locked with a READ lock and can't be updated"
 
-* 如果是另外一个session2执行上面的 update 语句，不会报错，sql 被阻塞从而一直在等待，直到被锁的 session 执行 unlock tables 才会执行。
+* 如果是另外一个 session2 执行上面的 update 语句，不会报错，sql 被阻塞从而一直在等待，直到被锁的 session 执行 unlock tables 才会执行。
+
+* 如果 `unlock tables` 无效：
+    * 使用 `SHOW PROCESSLIST` 查看卡住的进程， `kill id` 后在解锁表
 ```
 
 
@@ -78,7 +81,7 @@ ERROR 1099(HY000): Table 'mylock' was locked with a READ lock and can't be updat
 
 * 【如何分析表锁定】下面分析:
 ```sql
-mysql> show status like 'tables%';
+mysql> show status like 'table%';
 +------------------------+-------+
 | Variable_name          | TABLE |
 +------------------------+-------+
