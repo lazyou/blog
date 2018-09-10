@@ -99,7 +99,7 @@ mysql> show status like 'table%';
 
 ### 行锁(偏写)
 * 特点：    
-    * 偏向 __InnoDB___存储引擎，开销大，加锁慢；
+    * 偏向 __InnoDB__ 存储引擎，开销大，加锁慢；
     * 会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。
     * InnoDB 与 MyISAM 的最大不同有两点：
         * 一是支持 __事务__；
@@ -146,7 +146,7 @@ mysql> show status like 'table%';
 
         * d).serializable(串行化)：确保事务可以从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行增删改操作。所有的并发问题都可以避免，但性能什么低下。
 
-* 查看当前数据库的事务隔离级别： `show variables like 'tx_isolation'`
+* 查看当前数据库的事务隔离级别： `show variables like 'tx_isolation';`
 
 
 #### 案例分析
@@ -155,15 +155,15 @@ mysql> show status like 'table%';
 * 建表SQL,初始数据:
 ```sql
 create table test_row_lock (id int(11), name varchar(16), phone varchar(11)) engine=innodb;
-create index idx_id  on test_row_lock(id);  
-create index idx_name  on test_row_lock(name);
+create index idx_id on test_row_lock(id);
+create index idx_name on test_row_lock(name);
 insert into test_row_lock values(1, 'aa', '10081');
 insert into test_row_lock values(2, 'bb', '10082');
 insert into test_row_lock values(9, 'ff', '10086');
 ```
 
 * **索引失效或没有使用索引 行锁变表锁**:
-    * 需要打开两个session, 分别为session1和session2.
+    * 需要打开两个 session, 分别为 session1 和 session2.
 
     ```sql
     (下面以更新为测试，删除和增加效果类似)
@@ -174,7 +174,7 @@ insert into test_row_lock values(9, 'ff', '10086');
     session2 上操作
     mysql> update test_row_lock set phone='100aa' where id=1;
 
-    // 现象：session1没有commit,这里也会立即执行，不会阻塞
+    // 现象：session1 没有 commit, 这里也会立即执行，不会阻塞
     ----------------------------------------------------------
 
     例子2：索引失效，行锁变表锁
@@ -184,15 +184,15 @@ insert into test_row_lock values(9, 'ff', '10086');
     session2 上操作同上，这里主要看这条语句会不会立即执行
     mysql> update test_row_lock set phone='100aa' where id=1;
 
-    // 现象：这里会一直【阻塞】，只有session1上执行 commit 命令后，这条语句才会执行。
+    // 现象：这里会一直【阻塞】，只有 session1 上执行 commit 命令后，这条语句才会执行。
     ```
 
 
 * __间隙锁危害__
     * 【什么是间隙锁】
-        * 当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB会给符合条件的已有数据记录的索引项加锁；对于键值在条件范围内但并不存在的记录，叫做”间隙(GAP)”.
+        * 当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB 会给符合条件的已有数据记录的索引项加锁；对于键值在条件范围内但并不存在的记录，叫做 "间隙(GAP)".
 
-        * InnoDB也会对这个”间隙”加锁，这种锁机制就是所谓的间隙锁(Next-Key锁).
+        * InnoDB也会对这个 "间隙" 加锁，这种锁机制就是所谓的 间隙锁(Next-Key锁).
         
     * 【危害】
         * 因为Query执行过程中通过范围查找的话，它会锁定整个范围内所有的索引键值，即使这个键值产不存在。
@@ -207,12 +207,12 @@ insert into test_row_lock values(9, 'ff', '10086');
 
     # session2 上操作同上，这里主要看这条语句会不会立即执行
     mysql> insert into test_row_lock values(7, 'ff', '100ff');
-    // 现象：这里会一直【__阻塞__】，只有session1上执行 commit 命令后，这条语句才会执行。
+    // 现象：这里会一直【阻塞】，只有session1上执行 commit 命令后，这条语句才会执行。
     ```
 
 
 * __如何锁定一行__
-    * `select xxx... for update;` (select 锁定)锁定某一行后，其他的操作会被阻塞，直到锁定行的会话提交 commit；
+    * `select xxx... for update;` (select 锁定)锁定某一行后，其他的操作会被阻塞，直到锁定行的会话提交 `commit;`
 
     * eg:
     ```sql
