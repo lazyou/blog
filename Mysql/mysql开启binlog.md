@@ -12,3 +12,12 @@ max_binlog_size = 100M
 ```
 
 * 重启 mysql
+
+* 相关查看
+```sql
+SHOW VARIABLES LIKE 'log_bin%'
+
+show binary logs;
+
+show binlog events;
+```
