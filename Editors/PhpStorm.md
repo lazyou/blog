@@ -5,6 +5,19 @@
 
 * https://segmentfault.com/a/1190000015716373
 
+
+## 插件
+* Translation
+
+* PHP Advanced AutoComplete php 的高级自动补全
+
+* PHP Toolbox php工具增强
+
+* PHP Annotations php 注释增强工具
+
+* Laravel Plugin laravel 框架支持
+
+
 ## phpstorm 快捷键
 * 文件跳转: `Shift + Shift` (或者自定义 Search everywhere)
 
