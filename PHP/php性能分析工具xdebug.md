@@ -15,3 +15,22 @@ xdebug.profiler_enable_trigger=1
 # 分析文件保存目录， 默认是 /var/tmp
 xdebug.profiler_output_dir="/var/www/xdebug_logs"
 ```
+
+
+### 使用
+* way 1
+```conf
+# 访问 连接带参数 ?XDEBUG_PROFILE 才会进行性能分析
+http://xxx/test?XDEBUG_PROFILE
+
+
+# 日志生成在 /var/www/xdebug_logs
+cachegrind.out.22338
+
+# 分析查看工具1: kcachegrind
+sudo apt-get install kcachegrind
+# `kcachegrind cachegrind.out.22338 `
+
+# 分析查看工具2: webgrind -- https://github.com/jokkedk/webgrind
+需要配合工具 graphviz -- `sudo apt install graphviz`
+```
