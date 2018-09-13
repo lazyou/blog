@@ -16,6 +16,8 @@ xdebug.profiler_enable_trigger=1
 xdebug.profiler_output_dir="/var/www/xdebug_logs"
 ```
 
+* TODO: 如何配置断点调试
+
 
 ### 使用
 * way 1
