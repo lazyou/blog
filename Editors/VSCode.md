@@ -1,6 +1,15 @@
 ## VSCode
 * 官网： https://code.visualstudio.com/
 
+* 常用快捷键
+```conf
+# 快速跳转文件
+ctrl + p
+
+# 左侧菜单显示关闭切换
+ctrl + b
+```
+
 * 语言设置: F1 -> 语言设置 -> 修改为en-US -> 保存重启 VSCode
 
 * 设置备份
