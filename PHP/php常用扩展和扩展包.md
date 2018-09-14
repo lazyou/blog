@@ -12,5 +12,10 @@
 * https://github.com/JingwenTian/awesome-php
 
 
+* zip 操作： https://github.com/Chumper/Zipper
+
+* http: https://github.com/guzzle/guzzle
+
+
 ### window 下 php 扩展下载
 * https://windows.php.net/downloads/pecl/releases/
