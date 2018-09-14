@@ -22,17 +22,17 @@ sudo mv composer.phar /usr/local/bin/composer
 
 ### 镜像用法
 * 方法一： 修改 composer 的全局配置文件（推荐方式）
-    * `composer config -g repo.packagist composer https://packagist.phpcomposer.com`
+    * `composer config -g repo.packagist composer https://packagist.laravel-china.org`
 
 * 方法二： 修改当前项目的 composer.json 配置文件：
-    * `composer config repo.packagist composer https://packagist.phpcomposer.com`
+    * `composer config repo.packagist composer https://packagist.laravel-china.org`
 
     * 会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息:
     ```json
     "repositories": {
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
+            "url": "https://packagist.laravel-china.org"
         }
     }
     ```
