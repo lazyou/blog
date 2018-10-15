@@ -144,3 +144,17 @@
     1. epoll 内部使用了 `mmap` 共享了用户和内核的部分空间，避免了数据的来回拷贝
     
     2. epoll __基于事件驱动__，`epoll_ctl` 注册事件并注册 callback 回调函数，`epoll_wait` 只返回发生的事件避免了像 select 和 poll 对事件的整个轮寻操作。
+
+
+## 3. Nginx 异步，非阻塞，IO多路复用
+* Nginx 这样出众，正是他采用了 __异步，非阻塞，IO多路复用__。
+
+* Nginx 之前是单进程的。看下他的进程。1个 master 进程，2个 work 进程。
+```sh
+$ pstree |grep nginx
+ |-+= 81666 root nginx: master process nginx
+ | |--- 82500 nobody nginx: worker process
+ | \--- 82501 nobody nginx: worker process
+```
+
+* 每进来一个 request，会有一个 worker 进程去处理。但不是全程的处理，处理到什么程度呢？处理到可能发生阻塞的地方，比如向上游（后端）服务器转发 request，并等待请求返回。那么，这个处理的 worker 不会这么傻等着，他会在发送完请求后，注册一个事件：“如果 upstream 返回了，告诉我一声，我再接着干”。于是他就休息去了。这就是 __异步__。此时，如果再有 request 进来，他就可以很快再按这种方式处理。这就是 __非阻塞__ 和 __IO多路复用__。而一旦上游服务器返回了，就会触发这个 _事件_，worker 才会来接手，这个 request 才会接着往下走。这就是 __异步回调__。
