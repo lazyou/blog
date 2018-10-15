@@ -3,6 +3,8 @@
 
 * http://static.markbest.site/blog/56.html
 
+* https://segmentfault.com/a/1190000016021217
+
 * 默认持久化保存在 `/var/lib/redis/dump.rdb`
 
 * Redis持久化的方式有两种：__RDB__ 和 __AOF__。
