@@ -1,6 +1,10 @@
 ## 使用git和github进行协同开发流程
 * https://github.com/livoras/blog/issues/7
 
+* 其他文章：
+    * http://blog.jobbole.com/109466/
+    * http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
+    * git 提交 message 指南： http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
 
 ### 分支（Branch）
 * 永久性分支
