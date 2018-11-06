@@ -46,3 +46,5 @@ KiB Swap:  0.1/4025340  [                                                     ]
 ### 压力测试
 * 输入命令 `ab -n 100 -c 10 http://test.com/`
     * 其中 `－n` 表示请求数，`－c` 表示并发数
+
+* 传递 header 参数： `ab -n 1000 -c 100 -H "Content-Type: application/json" -H "Authorization: xxx" http://localhost:8080/v1/tag/1`
