@@ -56,7 +56,7 @@ ctrl + b
     * TODO Highlight
     * Todo Tree
     * PHP IntelliSense (感觉没啥用啊)
-
+    * Code Runner
 
 ### 使用 VSCode 进行 Laravel 开发
 * https://laravel-china.org/articles/6895/vscode-build-laravel-development-environment
