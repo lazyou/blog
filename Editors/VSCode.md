@@ -57,6 +57,7 @@ ctrl + b
     * Todo Tree
     * PHP IntelliSense (感觉没啥用啊)
     * Code Runner
+    * go
 
 ### 使用 VSCode 进行 Laravel 开发
 * https://laravel-china.org/articles/6895/vscode-build-laravel-development-environment
@@ -74,3 +75,9 @@ ctrl + b
     "phpfmt.php_bin": "D:\\software\\php7\\php.exe",
 }
 ```
+
+
+### go 插件
+* https://github.com/Microsoft/vscode-go.git
+
+* http://www.cnblogs.com/OctoptusLian/p/9325934.html
