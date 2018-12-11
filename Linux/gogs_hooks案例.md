@@ -66,7 +66,7 @@ else {
     */
 
     // 执行 shell 命令并把返回信息写进日志
-    $output = shell_exec("cd $projectPath && /usr/local/git/bin/git pull 2>&1 && /usr/bin/npm run build");
+    $output = shell_exec("cd $projectPath && /usr/local/git/bin/git pull 2>&1 && /usr/bin/npm run build 2>&1");
     fwrite($fs, 'Info: '. $output);
     fwrite($fs, '================ Update End ==============='. PHP_EOL . PHP_EOL);
 }
