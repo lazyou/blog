@@ -13,5 +13,8 @@
 * Golang 系列教程: https://www.zybuluo.com/phper/note/1072127
 
 * Go语言圣经: https://yar999.gitbooks.io/gopl-zh/content/
-
+    * https://books.studygolang.com/gopl-zh/
+    
 * Go语言实战: https://www.flysnow.org/categories/Golang/page/4/
+
+* Go 入门指南: https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md
