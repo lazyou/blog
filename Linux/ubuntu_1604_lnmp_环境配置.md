@@ -152,7 +152,7 @@ $ sudo mv composer.phar /usr/local/bin/composer
 $ composer 查看composer安装是否成功
 ```
 
-* 国内镜像设置: `composer config -g repo.packagist composer https://packagist.phpcomposer.com`
+* 国内镜像设置: `composer config -g repo.packagist composer https://packagist.laravel-china.org`
 
 
 #### 安装 git
