@@ -119,3 +119,7 @@
 * Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work
     * 解决参考 https://www.jianshu.com/p/db4d7cea3d00
     * 主要是在 master 虚拟机上 clone 了 slave 服务器, 导致 mysql 的 UUID 重复了, 只要删除 slave 的 /var/lib/mysql/auto.cnf 文件, 重启它的 mysql 服务即可(会重新生成一个新的 auto.cnf).
+
+
+### 6. 只复制指定的数据库或表
+* https://blog.csdn.net/qq_35772366/article/details/79949115
