@@ -40,7 +40,7 @@
     * 当 master 的 binlog 发生变化的时候，**binlog dump 线程** 会通知 slave，并将相应的 binlog内容发送给 slave.
 
 #### 3.3在slave机器上的操作
-    * 当主从同步开启的时候，slave上会创建2个线程;
+* 当主从同步开启的时候，slave上会创建2个线程：
     * **I/O线程**: 该线程连接到 master 机器，master 机器上的 binlog dump 线程会将 binlog 的内容发送给该 I/O线程。该 I/O线程接收到 binlog 内容后，再将内容写入到本地的relay log;
     * **SQL 线程**: 该线程读取I/O线程写入的 relay log。并且根据 relay log 的内容对 slave 数据库做相应的操作.
 
