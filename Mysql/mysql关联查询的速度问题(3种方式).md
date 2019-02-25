@@ -1,4 +1,4 @@
-### 最快                                                                                                                                                        ```sql
+### 最快
 ```sql                                    
 SELECT count(*) AS AGGREGATE
 FROM `oa_q_questions`
