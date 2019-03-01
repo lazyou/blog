@@ -84,6 +84,8 @@ folders:
 * TODO: 环境变量设置完重启 cmd.exe 进行 “常规操作”，环境变量的设置并不在 Git Shell 内生效 
 ```
 
+* 错误消息: The box 'laravel/homestead' is not a versioned box...
+    * 进入 `C:\Users\Administrator\.vagrant.d\boxes\laravel-VAGRANTSLASH-homestead` 创建文件 `metadata_url`，写入以下内容： `https://vagrantcloud.com/laravel/boxes/homestead/`
 
 ### Vagrant 常用命令
 ```
