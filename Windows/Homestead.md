@@ -98,14 +98,14 @@ folders:
     # 配置修改: homestead/scripts/homestead.rb
     # Register All Of The Configured Shared Folders
     if settings.include? 'folders'
-    settings["folders"].sort! { |a,b| a["map"].length <=> b["map"].length }
+        settings["folders"].sort! { |a,b| a["map"].length <=> b["map"].length }
 
-    settings["folders"].each do |folder|
-        config.vm.synced_folder folder["map"], folder["to"], 
-        id: folder["map"],
-        :nfs => true,
-        :mount_options => ['nolock,vers=3,udp,noatime']
-    end
+        settings["folders"].each do |folder|
+            config.vm.synced_folder folder["map"], folder["to"], 
+            id: folder["map"],
+            :nfs => true,
+            :mount_options => ['nolock,vers=3,udp,noatime']
+        end
     end    
     ```
 
