@@ -87,6 +87,29 @@ folders:
 * 错误消息: The box 'laravel/homestead' is not a versioned box...
     * 进入 `C:\Users\Administrator\.vagrant.d\boxes\laravel-VAGRANTSLASH-homestead` 创建文件 `metadata_url`，写入以下内容： `https://vagrantcloud.com/laravel/boxes/homestead/`
 
+* 解决 Windows 系统使用 Homestead 运行 Laravel 本地项目响应缓慢问题
+    * https://learnku.com/articles/9009/solve-the-slow-response-problem-of-windows-system-using-homestead-to-run-laravel-local-project
+
+    * 配置
+    ```
+    cd ~/Homestead
+    vagrant plugin install vagrant-winnfsd
+
+    # 配置修改: homestead/scripts/homestead.rb
+    # Register All Of The Configured Shared Folders
+    if settings.include? 'folders'
+    settings["folders"].sort! { |a,b| a["map"].length <=> b["map"].length }
+
+    settings["folders"].each do |folder|
+        config.vm.synced_folder folder["map"], folder["to"], 
+        id: folder["map"],
+        :nfs => true,
+        :mount_options => ['nolock,vers=3,udp,noatime']
+    end
+    end    
+    ```
+
+
 ### Vagrant 常用命令
 ```
 vargrant up
