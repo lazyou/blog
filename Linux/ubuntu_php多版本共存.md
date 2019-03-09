@@ -19,3 +19,18 @@ sudo apt install php5.6-fpm php5.6-mysql php5.6-curl php5.6-gd php5.6-mbstring p
 * nginx 代理使用不同版本的 php-fpm 即可
 
 * 更多 PHP 扩展: `sudo apt-cache search php7.1`
+
+
+### Ubuntu彻底删除 PHP7.0
+* 一、删除php的相关包及配置: `sudo apt-get autoremove php7*`
+
+* 二、删除关联 (谨慎, 这个有问题, 一不小心会删除 其它含 php 的文件): 
+    * 建议先运行 `sudo find /etc -name "*php*"` 查看涉及的文件
+    * `sudo find /etc -name "*php*" | xargs  rm -rf`
+
+* 三、清除dept列表 (谨慎)
+    * sudo apt purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
+
+* 四、检查是否卸载干净（无返回就是卸载完成）: `dpkg -l | grep php7.0`
+
+* Tip: `dpkg -l` 列出所有已安装文件包
