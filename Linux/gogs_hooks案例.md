@@ -1,6 +1,9 @@
 ## gogs 后台 hooks 地址设置 (settings/hooks)
 * https://api.xxx.com/hooks.php?token=e1bf4462321e409cee4ac0b6e849876c
 
+## 钩子失效常见问题问题
+* 权限问题: 有时候手动 pull 代码, 导致项目下 `.git/` 权限变成 root 的.
+
 ## gogs 自动更新脚本
 ```php
 <?php
