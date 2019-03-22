@@ -42,6 +42,8 @@ url=htt://用户名@115.29.../meishenghuo/web.git
 
 
 #### gitk 等查看 log 出现乱码
+* 全局配置： `git config --global gui.encoding utf-8`
+
 * 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置: 
 ```
 [gui]
