@@ -109,6 +109,20 @@ folders:
     end    
     ```
 
+### 使用 redis
+```
+# redis 配置修改
+vagrant ssh
+sudo vim /etc/redis/redis.conf
+修改 bind 地址为 0.0.0.0 // 仅仅注释掉是无效的
+
+# 修改 Homestead.yaml 进行端口映射
+ports:
+    - send: 63790
+      to: 6379
+
+# 重启 vagrant
+```
 
 ### Vagrant 常用命令
 ```
