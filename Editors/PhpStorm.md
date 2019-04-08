@@ -6,6 +6,10 @@
 * https://segmentfault.com/a/1190000015716373
 
 
+## 常见问题:
+* 不能选择php版本:
+    * Settings -> Composer -> 取消勾选 Synchronize IDE Settings with composer.json
+
 ## 插件
 * Translation
 
