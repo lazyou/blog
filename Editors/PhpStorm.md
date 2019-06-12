@@ -20,6 +20,7 @@
 * PHP Annotations php 注释增强工具
 
 * Laravel Plugin laravel 框架支持
+    * https://www.jetbrains.com/help/phpstorm/laravel.html
 
 
 ## phpstorm 快捷键
