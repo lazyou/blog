@@ -190,6 +190,21 @@
 
 * Go
 
+* gRPC:
+    * https://www.grpc.io/docs/
+    * http://doc.oschina.net/grpc (https://www.grpc.io/docs/quickstart/)
+    * 系列教程: https://github.com/jergoo/go-grpc-example
+    * grpc-web:
+        * https://github.com/grpc/grpc-web
+        * 代理: https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
+            * eg: `grpcwebproxy --server_tls_cert_file=../../misc/localhost.crt --server_tls_key_file=../../misc/localhost.key --backend_addr=localhost:50059 --backend_tls_noverify --allow_all_origins  --server_http_max_write_timeout=24h`
+        * protobuf 生成 js 代码: protoc-gen-grpc -- https://github.com/grpc/grpc-web/releases
+
+* ProToBuf:
+    * https://developers.google.com/protocol-buffers/   (https://developers.google.com/protocol-buffers/docs/proto3)
+    * https://github.com/protocolbuffers/protobuf
+    * https://my.oschina.net/wenzhenxi/blog/3016007
+
 * 进程，线程，协程，同步，异步，阻塞，非阻塞
 
 ## 文章
