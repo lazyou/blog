@@ -133,7 +133,12 @@
     * https://my.oschina.net/kimver/blog/1634575
     * https://broqiang.com/posts/31
 
-* Elastcisearch
+* Elastcisearch:
+    * https://www.elastic.co/cn/downloads/elasticsearch
+    * https://www.elastic.co/cn/products/elasticsearch
+    * https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+    * 入门教程: http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
+    * 中文分词: https://github.com/medcl/elasticsearch-analysis-ik
 
 * JavaScript：
     * 规范:
