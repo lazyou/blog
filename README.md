@@ -17,6 +17,9 @@
     * 异步
         * https://meathill.gitbooks.io/javascript-async-tutorial/content/
 
+* CSS:
+    * https://qishaoxuan.github.io/css_tricks/
+
 ## todos
 * Docker
 
@@ -189,6 +192,10 @@
 * Kafka
 
 * Go
+
+* go-xorm:
+    * https://xorm.io/zh/
+    * https://github.com/go-xorm/xorm
 
 * gRPC:
     * https://www.grpc.io/docs/
