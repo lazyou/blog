@@ -178,6 +178,26 @@ docker run --name runoob-php-nginx -p 8083:80 -d -v /c/Users/nginx/www:/usr/shar
 ## /c/Users/nginx/www 目录下创建 index.php, 内容为 `echo phpinfo();`
 ```
 
+#### 3. Docker 安装 MySQL
+* TODO: 如何挂载 data 目录以及外置配置有待补充
+```sh
+# docker 中下载 mysql
+docker pull mysql:5.7
+
+# 启动
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Lzslov123! -d mysql
+
+# 进入容器
+docker exec -it mysql bash
+
+# 登录mysql
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Lzslov123!';
+
+# 添加远程登录用户
+CREATE USER 'liaozesong'@'%' IDENTIFIED WITH mysql_native_password BY 'Lzslov123!';
+GRANT ALL PRIVILEGES ON *.* TO 'liaozesong'@'%';
+```
 
 ### tip
 * 0. 使用命令
