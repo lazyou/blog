@@ -14,7 +14,7 @@ var p = new Promise(function(resolve, reject){
 });
 ```
 
-* Promise 的构造函数接收一个参数，是函数，并且传入两个参数：`resolve`，`reject`，__分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数__。其实这里用“成功”和“失败”来描述并不准确，按照标准来讲，resolve 是将Promise 的状态置为 fullfiled，reject 是将 Promise 的状态置为 rejected。不过在我们开始阶段可以先这么理解，后面再细究概念。
+* Promise 的构造函数接收一个参数，是函数，并且传入两个参数：`resolve`，`reject`，__分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数__。其实这里用“成功”和“失败”来描述并不准确，按照标准来讲，resolve 是将Promise 的状态置为 fulfilled, reject 是将 Promise 的状态置为 rejected。不过在我们开始阶段可以先这么理解，后面再细究概念。
 
 * 在上面的代码中，我们执行了一个异步操作，也就是 setTimeout，2秒后，输出“执行完成”，并且调用 resolve 方法。
 
