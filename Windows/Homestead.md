@@ -46,6 +46,10 @@ folders:
       to: /home/vagrant/Code
 ```
 
+### 快速部署 laravel 项目
+* `serve-laravel api.shop.test /home/vagrant/Codes/laravel/public`
+* 支持更多项目命令参考 `D:\Homestead\scripts`
+
 
 ### 扩展配置
 * 关于下载的 box 文件版本， 在 Homestead 项目也要切换到对应的 tag (`git checkout -b v6.1.0`)。
