@@ -8,6 +8,14 @@
 
 * https://github.com/golang/go/wiki/Modules
 
+### Go Module代理仓库服务
+* 阿里云: `export GOPROXY=https://mirrors.aliyun.com/goproxy/`
+
+* goproxy: https://github.com/goproxy/goproxy.cn
+
+* 可设置 GOPROXY 为环境变量来使代理永久生效
+
+
 ### go mod
 Usage:
 
