@@ -8,6 +8,12 @@
 
 * https://github.com/golang/go/wiki/Modules
 
+### Go Module代理仓库服务
+* 阿里云: `export GOPROXY=https://mirrors.aliyun.com/goproxy/`
+
+* goproxy: https://github.com/goproxy/goproxy.cn
+
+
 ### go mod
 Usage:
 
