@@ -6,3 +6,8 @@
 
 * 按键:
     * 关闭 "简体/繁体中文输入切换" (占用了 phpstorm 目录搜索的快捷键)
+
+
+## win10 快速打开便签
+* https://jingyan.baidu.com/article/9f63fb91996af3c8400f0e88.html
+* 快捷键: `windows+W`
