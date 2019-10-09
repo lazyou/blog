@@ -3,3 +3,7 @@
 
 ### 添加点击事件 @click 无效怎么处理
 * 使用 `@click.native="XXX"`
+
+
+### 触发某个 dom 的事件
+* `this.$refs.inputResult.$emit('click')`
