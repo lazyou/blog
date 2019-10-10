@@ -7,3 +7,6 @@
 
 ### 触发某个 dom 的事件
 * `this.$refs.inputResult.$emit('click')`
+
+### watch 里面不能使用箭头函数, 否则调用 methods 和 data 会失败
+* 为什么呢?
