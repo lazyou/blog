@@ -5,7 +5,7 @@
 * Git
 * Virtual Box
 * Vagrant: https://www.vagrantup.com/downloads.html
-* Vagrant Box: 
+* Vagrant Box:
 	* 最好是下载现成的 box 镜像（网盘）
 	* TODO: 地址补充
 
@@ -52,17 +52,19 @@ folders:
 
 
 ### 扩展配置
-* 关于下载的 box 文件版本， 在 Homestead 项目也要切换到对应的 tag (`git checkout -b v6.1.0`)。
+* __关于下载的 box 文件__ 版本， 在 Homestead 项目也要切换到对应的 tag (`git checkout -b v8.2.0`)。
+
+*  https://vagrantcloud.com/laravel/boxes/homestead/versions/8.2.1/providers/virtualbox.box
 
 * metadata.json 的使用： https://segmentfault.com/q/1010000004674663/a-1020000005971805
 ```
 # metadata.json 内容如下
 {
     "name": "laravel/homestead",
-    "versions": 
+    "versions":
     [
         {
-            "version": "0.5.0",
+            "version": "8.2.1",
             "providers": [
                 {
                   "name": "virtualbox",
@@ -88,7 +90,7 @@ folders:
 
 这样，我们以后vagrant up的时候，box文件就生成在D盘了
 
-* TODO: 环境变量设置完重启 cmd.exe 进行 “常规操作”，环境变量的设置并不在 Git Shell 内生效 
+* TODO: 环境变量设置完重启 cmd.exe 进行 “常规操作”，环境变量的设置并不在 Git Shell 内生效
 ```
 
 * 错误消息: The box 'laravel/homestead' is not a versioned box...
@@ -108,12 +110,12 @@ folders:
         settings["folders"].sort! { |a,b| a["map"].length <=> b["map"].length }
 
         settings["folders"].each do |folder|
-            config.vm.synced_folder folder["map"], folder["to"], 
+            config.vm.synced_folder folder["map"], folder["to"],
             id: folder["map"],
             :nfs => true,
             :mount_options => ['nolock,vers=3,udp,noatime']
         end
-    end    
+    end
     ```
 
 ### 使用 redis

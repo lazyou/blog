@@ -2,6 +2,8 @@
 * https://my.oschina.net/jsk/blog/289275
 
 * 如果是windows做Guest，直接单击菜单栏 "Insert Guest Additions CD Image... " 就可以将 Additions CD 自动加载到Guest里的虚拟光驱里，但是Linux是不行的，**因为Linux需要root权限才可以mount CD Image**。
+    * 命令行界面可以去 http://download.virtualbox.org/virtualbox 下载对应版本的 VBoxGuestAdditions.ios, 然后挂载到虚拟机
+
     * 做法是在Guest里打开终端，输入：`sudo mount /dev/sr0  /media/cdrom`
 
     * 把sr0挂载到 /media/cdrom 里，如果没有cdrom，可以先mkdir一个，挂载到其他位置也可以。
