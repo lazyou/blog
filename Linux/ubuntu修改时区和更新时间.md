@@ -6,6 +6,6 @@
 * 修改时区:
 ```sh
 tzselect // 选择对应时区地点
-cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+sudo cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 date -R // 查看修改结果
 ```
