@@ -41,3 +41,4 @@
 
 * grpc-web 编译成js客户端:
   * `repeated xxx = 1` 会被重命名为 `xxxList`
+  * 方法名首字母强制变小写
