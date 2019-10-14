@@ -27,6 +27,19 @@
 
     * 编译: `protoc --go_out=plugins=grpc:..\ rpc\common\common.proto`
 
+### protobuf 工具方法
+* https://www.jianshu.com/p/030b03532961
+
+* `proto/lib.go` 中包含大量常用的类型及方法
+  ```go
+  proto.String()
+  proto.Int64()
+  proto.Uint64()
+  proto.Bool()
+  proto.Marshal()
+  proto.Unmarshal()
+  proto.Message
+  ```
 
 ### protobuf 文件编写 tip
 * https://developers.google.cn/protocol-buffers/docs/proto3
