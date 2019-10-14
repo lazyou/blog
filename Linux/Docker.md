@@ -14,6 +14,9 @@
 * Docker 容器通过 Docker 镜像来创建。
 * 容器与镜像的关系类似于面向对象编程中的对象与类。
 
+## dockerToolbox 和 docker for windows 的区别
+* https://blog.csdn.net/JENREY/article/details/84493812
+* win10以下推荐 dockerToolbox, win10 及以上推荐 docker for windows
 
 ### Docker 安装
 * Ubuntu Docker 安装:
@@ -24,7 +27,7 @@ docker run hello-world
 ```
 
 * Windows Docker 安装:
-	* http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/
+	* win10 以下: http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/
 
 	* docker toolbox 是一个工具集，它主要包含以下一些内容：
 		```
