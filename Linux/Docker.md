@@ -4,6 +4,10 @@
 * https://www.runoob.com/docker/docker-tutorial.html
 * Docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版）
 
+* 阿里云:
+	* https://cr.console.aliyun.com
+	* 镜像加速器: https://cr.console.aliyun.com/cn-shenzhen/instances/mirrors
+	* docker login --username=帐号 registry.cn-hangzhou.aliyuncs.com
 
 ### Docker 架构
 * Docker 使用客户端-服务器 (C/S) 架构模式，使用远程API来管理和创建Docker容器。
