@@ -11,6 +11,8 @@
 ### web 中使用 grpc
 * https://github.com/grpc/grpc-web
 
+* grpc web 只支持服务端流, 不支持客户端流
+
 * 编译命令案例: `rotoc -I=. rpc\common\common.proto --js_out=import_style=commonjs,binary:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.`
 
 * 客户端案例:
