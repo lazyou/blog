@@ -16,7 +16,8 @@
 
 ## dockerToolbox 和 docker for windows 的区别
 * https://blog.csdn.net/JENREY/article/details/84493812
-* win10以下推荐 dockerToolbox, win10 及以上推荐 docker for windows
+* win10以下推荐 dockerToolbox, win10 及以上推荐 docker for windows 
+	* docker-for-windows是为win10专业版提供的安装包(安装需要hyper-v)
 
 ### Docker 安装
 * Ubuntu Docker 安装:
