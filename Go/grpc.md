@@ -42,6 +42,7 @@
 
 ### 使用代理支持 gRPC-Web protocol 协议
 * grpcwebproxy:
+  * 安装: `go get -u github.com/improbable-eng/grpc-web/go/grpcwebproxy`
   * https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
   * `grpcwebproxy --backend_addr=localhost:50059 --allow_all_origins --server_http_max_write_timeout=24h --run_tls_server=false`
   * `grpcwebproxy --server_tls_cert_file=../../misc/localhost.crt --server_tls_key_file=../../misc/localhost.key --backend_addr=localhost:50059 --backend_tls_noverify --allow_all_origins  --server_http_max_write_timeout=24h`
