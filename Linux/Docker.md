@@ -16,7 +16,7 @@
 
 ## dockerToolbox 和 docker for windows 的区别
 * https://blog.csdn.net/JENREY/article/details/84493812
-* win10以下推荐 dockerToolbox, win10 及以上推荐 docker for windows 
+* win10以下推荐 dockerToolbox, win10 及以上推荐 docker for windows
 	* docker-for-windows是为win10专业版提供的安装包(安装需要hyper-v)
 
 ### Docker 安装
@@ -43,6 +43,15 @@ docker run hello-world
 	* win10 下docker默认内网ip: 192.168.99.100
 
 	* cmder 下运行 docker 相关命令报错可参考 tip1
+
+
+### docker-toolbox 使用 tip
+* 使用 docker-machine 操作运行 docker 的虚拟机
+	* 设置环境变量: `MACHINE_STORAGE_PATH` 为 `D:\VirtualBox VMs\docker`. (让docker相关的文件都跑这里, 避免占用系统盘)
+
+	* 创建一个 docker 的虚拟机: `docker-machine create --engine-registry-mirror=https://xxx.mirror.aliyuncs.com -d virtualbox default`
+		* 参考: https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+
 
 
 ### 镜像加速
