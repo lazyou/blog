@@ -20,6 +20,8 @@
 	* docker-for-windows是为win10专业版提供的安装包(安装需要hyper-v)
 
 ### Docker 安装
+* __阿里云 docker ce 安装__： https://yq.aliyun.com/articles/110806?spm=5176.8351553.0.0.70f119911yfHo8
+
 * Ubuntu Docker 安装:
 ```sh
 wget -qO- https://get.docker.com/ | sh
@@ -160,6 +162,10 @@ docker run -d -p 8082:80 --name runoob-nginx-test-web -v /c/Users/nginx/www:/usr
 
 
 #### 2. Docker 安装 PHP
+* Docker php安装扩展步骤详解:
+	* https://www.cnblogs.com/yinguohai/p/11329273.html
+	* https://www.cnblogs.com/wyaokai/p/11904701.html, https://www.cnblogs.com/wyaokai/p/11928223.html
+
 ```sh
 # PHP容器 (后续会用到这个容器)
 docker pull php:7.2-fpm

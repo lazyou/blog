@@ -14,4 +14,9 @@
     ```
 
 ### Window
+* https://golang.google.cn/doc/install
+
 * https://golang.org/dl/
+
+* 阿里云Go Module代理仓库服务: http://mirrors.aliyun.com/goproxy/
+    * `export GOPROXY=https://mirrors.aliyun.com/goproxy`
