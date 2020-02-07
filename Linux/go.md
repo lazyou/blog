@@ -20,3 +20,6 @@
 
 * 阿里云Go Module代理仓库服务: http://mirrors.aliyun.com/goproxy/
     * `export GOPROXY=https://mirrors.aliyun.com/goproxy`
+
+* goproxy.cn: https://github.com/goproxy/goproxy.cn/blob/master/README.zh-CN.md
+    * `go env -w GOPROXY=https://goproxy.cn,direct`
