@@ -27,6 +27,11 @@
 wget -qO- https://get.docker.com/ | sh
 sudo service docker start
 docker run hello-world
+
+# 设置docker用户和分区
+sudo addgroup --system docker
+sudo adduser $USER docker
+newgrp docker
 ```
 
 * Windows Docker 安装:
@@ -231,3 +236,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'liaozesong'@'%';
 
 * 1. cmder 运行 docker 相关命令报 `error during connect` 解决:
 	* `@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO @%i`
+
+* 2. 时区设置:
+	* 虚拟内与本机时区同步: `-v /etc/localtime:/etc/localtime `
+	* Dockerfile(https://www.jianshu.com/p/ee70f9736930): `ENV TZ=Asia/Shanghai ... ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \`
