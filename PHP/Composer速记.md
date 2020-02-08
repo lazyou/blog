@@ -79,3 +79,16 @@ composer update -vvv
 
 ### Composer Cheat Sheet for developers
 * http://composer.json.jolicode.com/
+
+
+### composer install 出现 proc_open(): fork failed - Cannot allocate memory 的错误
+```sh
+/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+/sbin/mkswap /var/swap.1
+/sbin/swapon /var/swap.1
+
+# 第一行：创建一个 1G 大小的文件
+# 第二行：格式化该文件
+# 第三行：将该文件挂载至文件系统中。
+# 效果，内存大了一些
+```
