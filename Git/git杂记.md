@@ -100,3 +100,11 @@ git stash pop
 2. git rm <文件> || git rm * -r (到要删除的目录下)
 3. git add . || git commit -m"clear"
 ```
+
+
+### git diff 比较不同分支之间的文件变化
+```
+比较两个分支不同: 推荐老分支放第一位, 新分支放第二位
+git diff  5608bb3b 6a195beb  application\admin\
+git diff  5608bb3b 6a195beb  --name-only application\admin\
+```
