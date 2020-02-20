@@ -1,3 +1,6 @@
+## win10 激活
+* http://www.yishimei.cn/network/319.html
+
 ## 基于UFEI下的win10 + Ubuntu18.04双系统攻略
 * https://www.e-learn.cn/content/qita/2707588
 
