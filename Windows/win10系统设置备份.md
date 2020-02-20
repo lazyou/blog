@@ -1,3 +1,6 @@
+## 基于UFEI下的win10 + Ubuntu18.04双系统攻略
+* https://www.e-learn.cn/content/qita/2707588
+
 ## 语言 -- 微软拼音
 * 常规:
     * 关闭 "自动拼音纠错" "超级简拼"
