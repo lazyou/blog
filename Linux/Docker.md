@@ -2,7 +2,7 @@
 * https://www.docker.com/
 * 镜像查询: https://hub.docker.com/
 * https://www.runoob.com/docker/docker-tutorial.html
-* Docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版）
+* Docker 从 17.03 版本之后分为 CE(Community Edition: 社区版) 和 EE(Enterprise Edition: 企业版)
 
 * 阿里云:
 	* https://cr.console.aliyun.com
@@ -34,7 +34,8 @@ sudo adduser $USER docker
 newgrp docker
 ```
 
-* Windows Docker 安装:
+* Windows Docker 安装: 
+	* https://www.runoob.com/docker/windows-docker-install.html
 	* win10 以下: http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/
 
 	* docker toolbox 是一个工具集，它主要包含以下一些内容：
@@ -55,14 +56,14 @@ newgrp docker
 ### docker-toolbox 使用 tip
 * 使用 docker-machine 操作运行 docker 的虚拟机
 	* 设置环境变量: `MACHINE_STORAGE_PATH` 为 `D:\VirtualBox VMs\docker`. (让docker相关的文件都跑这里, 避免占用系统盘)
-
+		* https://www.jianshu.com/p/80fa5b563b5b
 	* 创建一个 docker 的虚拟机: `docker-machine create --engine-registry-mirror=https://xxx.mirror.aliyuncs.com -d virtualbox default`
 		* 参考: https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 
 
 
 ### 镜像加速
-* 新版的 Docker 使用 `/etc/docker/daemon.json`（Linux） 或者 `%programdata%\docker\config\daemon.json`（Windows） 来配置 Daemon。 请在该配置文件中加入（没有该文件的话，请先建一个）：
+* 新版的 Docker 使用 `/etc/docker/daemon.json`(Linux) 或者 `%programdata%\docker\config\daemon.json`(Windows) 来配置 Daemon。 请在该配置文件中加入(没有该文件的话，请先建一个)：
 ```json
 {
   "registry-mirrors": ["http://hub-mirror.c.163.com"]
@@ -84,7 +85,7 @@ newgrp docker
  	* --name xxx: 命名容器;
 	* -v: 挂载(映射)目录或文件到容器内部 (win10 下需要做虚拟机的共享目录才能挂载).
 	* --privileged=true: 给容器特权,在挂载目录后容器可以访问目录以下的文件或者目录
-	* --link: link可以用来链接2个容器，使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信，解除了容器之间通信对容器IP的依赖
+	* --link: link可以用来链接2个容器，使得源容器(被链接的容器)和接收容器(主动去链接的容器)之间可以互相通信，解除了容器之间通信对容器IP的依赖
 	* -e: 传入的环境变量参数. eg: `-e MYSQL_ROOT_PASSWORD=123456`
 
 * docker:
@@ -240,3 +241,39 @@ GRANT ALL PRIVILEGES ON *.* TO 'liaozesong'@'%';
 * 2. 时区设置:
 	* 虚拟内与本机时区同步: `-v /etc/localtime:/etc/localtime `
 	* Dockerfile(https://www.jianshu.com/p/ee70f9736930): `ENV TZ=Asia/Shanghai ... ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \`
+
+
+### 其他:
+* 阿里云 Docker CE 镜像: https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.53322f7084Za5S
+
+* 30 分钟快速入门 Docker 教程: https://segmentfault.com/a/1190000018810837
+
+* 《Docker从入门到实践》阅读笔记: https://www.jianshu.com/p/ca2a98e42f4d
+
+* RabbitMQ 安装及简单使用(基于 docker｜白小纯版): https://learnku.com/articles/37157
+
+* 使用 Docker 创建 Lumen 项目: https://learnku.com/articles/37504
+
+* docker 构建php-fpm 7.2(swoole) 镜像: https://www.jianshu.com/p/ce8de13b237c
+
+* Docker-Compose简介安装使用: https://www.jianshu.com/p/0793f62af9df
+
+* docker-compose 系列:
+	https://www.cnblogs.com/sparkdev/p/9753793.html
+	https://www.cnblogs.com/sparkdev/p/9787915.html
+	https://www.cnblogs.com/sparkdev/p/9803554.html
+	
+
+* 使用docker-compose 大杀器来部署服务: https://www.cnblogs.com/neptunemoon/p/6512121.html
+
+* 使用dockerfile-部署php环境: http://www.texixi.com/2016/11/03/使用dockerfile-部署php环境/
+
+* Docker LNMP (Nginx, PHP7/PHP5, MySQL, Redis): https://github.com/yeszao/dnmp
+	* https://www.awaimai.com/2120.html
+
+* 自己撸一个 LaraDock(使用 Docker LNMP 部署 PHP 开发环境): https://github.com/yanlongma/docker-lnmp
+	* https://learnku.com/articles/31246
+
+* Docker 的 LNMP 一键安装开发环境 + PHP 非侵入式监控平台 xhgui (优化系统性能、定位 Bug): https://learnku.com/articles/30424	
+
+* 在Kubernetes集群中使用Redis部署PHP留言簿应用程序: https://cloud.tencent.com/developer/article/1434592
