@@ -23,3 +23,11 @@
 * 重启 redis 服务
 
 * 或者 `config set requirepass my_redis`
+
+
+## 其他:
+* PHP 扩展: http://pecl.php.net/package/redis
+
+* 如何利用 Redis 快速实现签到统计功能: https://learnku.com/articles/25181
+
+* Docker 安装单机版 redis5 和集群版 redis5: https://blog.csdn.net/Amor_Leo/article/details/85147086
