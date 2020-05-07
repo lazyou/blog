@@ -33,7 +33,7 @@
 ### 相关软件安装
 
 #### 安装PHP
-* `apt install php-common php7.0 php7.0-cli php7.0-fpm php7.0-common php7.0-opcache php7.0-readline php7.0-curl php7.0-xml php7.0-mcrypt php7.0-json php7.0-gd php7.0-mbstring php7.0-mysql`
+* `apt install php-common php7.2 php7.2-cli php7.2-fpm php7.2-common php7.2-opcache php7.2-readline php7.2-curl php7.2-xml php7.2-json php7.2-gd php7.2-mbstring php7.2-mysql php7.2-zip php7.2-bcmath php7.2-bz2`
     * 如果你尝试使用 `apt install php` 该命令会自动为你安装 Apache，因此采用上面的细化安装
 
 
@@ -152,7 +152,8 @@ $ sudo mv composer.phar /usr/local/bin/composer
 $ composer 查看composer安装是否成功
 ```
 
-* 国内镜像设置: `composer config -g repo.packagist composer https://packagist.laravel-china.org`
+* 国内镜像设置: `composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/`
+* https://developer.aliyun.com/composer
 
 
 #### 安装 git
