@@ -14,15 +14,25 @@
 
 ### windows 下git乱码统一解决
 ```sh
-$ git config --global core.quotepath false          # 显示 status 编码
-$ git config --global gui.encoding utf-8            # 图形界面编码
+$ git config --global core.quotepath false          # 显示 status 编码 （git status 时文件名中文乱码）
+$ git config --global gui.encoding utf-8            # 图形界面编码 （gitk 时提交日志查看乱码）
+
+// 下面两个好像很少看到
 $ git config --global i18n.commit.encoding utf-8    # 提交信息编码
 $ git config --global i18n.logoutputencoding utf-8  # 输出 log 编码
 ```
 
 
-### 中文路径显示乱码解决
- * `git config --global core.quotepath false`
+### gitk 等查看 log 出现乱码
+* 全局配置： `git config --global gui.encoding utf-8`
+
+* 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置: 
+```
+[gui]
+  encoding = utf-8
+[i18n]
+  commitencoding = utf-8
+ ```
 
 
 ### git 坑之 -- 文件名大小写敏感自动忽略 （window 下应取消
@@ -37,7 +47,6 @@ git pull // 输入账号密码(私有账号需要账号密码)
 git pull origin master // 如果第5步没有下载就继续这一步.
 ```
 
-
 ### 免输入用户名：
 ```
 在当前的项目目录下
@@ -50,18 +59,6 @@ url=htt://用户名@115.29.../meishenghuo/web.git
 * 方法一, 全局设置: `git config --global credential.helper store`
 
 * 方法二, 设置在项目的 url 上: `vim .git/config, 然后设置 https://{username}:{password}@github.com`
-
-
-### gitk 等查看 log 出现乱码
-* 全局配置： `git config --global gui.encoding utf-8`
-
-* 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置: 
-```
-[gui]
-  encoding = utf-8
-[i18n]
-  commitencoding = utf-8
- ```
 
 
 ### 暂存
