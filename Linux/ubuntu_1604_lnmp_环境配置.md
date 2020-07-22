@@ -55,7 +55,7 @@
 * 配置 mysql 远程连接:
     * 注释掉在 `vim /etc/mysql/mysql.conf.d/mysqld.cnf` 里面的`bind-address = 127.0.0.1`
 
-    * `mysql mysql -uroot -p`:
+    * __2020年7月22日不再推荐__:  ~~`mysql mysql -uroot -p`:~~
     ```
     > use mysql;
     > Grant all on *.* to 'root'@'%' identified by 'root用户的密码' with grant option;
@@ -64,6 +64,19 @@
 
 * TODO: mysql 如何添加新用户, 赋予某个数据库的操作权限?
 
+* 2020年7月22日更新root添加, 以及远程数据库连接:
+```sql
+use mysql;
+update user set authentication_string=PASSWORD("新密码") where user='root';
+update user set plugin="mysql_native_password";
+flush privileges;
+quit;
+
+use mysql;
+select host from user where user='root';
+update user set host = '%' where user ='root';
+flush privileges;
+```
 
 
 ##### 安装nginx
@@ -324,7 +337,7 @@ unzip v2.1.3.zip
 cd swoole
 phpize
 ./configure
-make 
+make
 sudo make install
 sudo echo 'extension=swoole.so' > /etc/php/7.0/mods-available/swoole.ini
 sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/fpm/conf.d/20-swoole.ini
@@ -333,7 +346,7 @@ sudo ln -s /etc/php/7.0/mods-available/swoole.ini /etc/php/7.0/cli/conf.d/20-swo
 # 使用时出现问题: WARNING swSignalfd_setup: signalfd() failed. Error: Function not implemented[38]
 * 解决: https://github.com/swoole/swoole-src/issues/1134
     * 在 `./configure` 后，将 config.h 中 `#define HAVE_SIGNALFD 1` 行注释掉，再进行编译安装操作后，解决了此问题
-    
+
 * 查看 swoole 版本: `php --ri swoole`
 ```
 
@@ -350,7 +363,7 @@ $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 $ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 $ sudo apt-get update
 $ sudo apt-get install mongodb-org
-$ sudo apt install mongodb-server  
+$ sudo apt install mongodb-server
 $ sudo service mongodb start | status
 默认端口是 27017
 ```
@@ -363,7 +376,7 @@ $ sudo service mongodb start | status
 sudo apt install php7.0-zip
 sudo apt install php7.0-bcmath
 sudo apt install php-bz2
- 
+
 sudo vim /etc/php/7.0/fpm/php.ini
 display_errors = On
 ```
