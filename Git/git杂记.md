@@ -20,13 +20,17 @@ $ git config --global gui.encoding utf-8            # 图形界面编码 （gitk
 // 下面两个好像很少看到
 $ git config --global i18n.commit.encoding utf-8    # 提交信息编码
 $ git config --global i18n.logoutputencoding utf-8  # 输出 log 编码
+
+// 如果还是乱码可能需要如下操作
+export LESSCHARSET=utf-8 ## linux bash配置环境变量
+set LESSCHARSET=utf-8 #windows配置环境变量
 ```
 
 
 ### gitk 等查看 log 出现乱码
 * 全局配置： `git config --global gui.encoding utf-8`
 
-* 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置: 
+* 找到配置文件例如: D:\software\Git\mingw64\etc\gitconfig, 添加设置:
 ```
 [gui]
   encoding = utf-8
@@ -90,7 +94,7 @@ git stash pop
 [user]
     name = xxx
     email = xxx@qq.com
-```    
+```
 
 
 ### 修改文件权限引起的 git 记录文件变化
