@@ -198,6 +198,8 @@ $ composer 查看composer安装是否成功
 
     * ...
 
+* 快速切换到 www-data 用户进行 composer git artisan crontab 等操作, 避免出现各种权限问题:
+    * `sudo su - www-data -s /bin/bash`
 
 
 #### 安装 php redis 扩展

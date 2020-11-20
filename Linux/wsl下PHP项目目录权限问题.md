@@ -12,4 +12,4 @@ options = "metadata,umask=22,fmask=11"
 mountFsTab = false
 ```
 
-* 然后更改项目权限: `sudo chown -R www-data:www-data laravel-mp/`
+* 然后更改项目权限: `sudo chown -R www-data:www-data laravel-mp`
