@@ -1,7 +1,7 @@
 ## 参考
 * http://liyangliang.me/posts/2015/06/using-supervisor/
 
-* https://github.com/lisijie/lab/issues/11  
+* https://github.com/lisijie/lab/issues/11
 
 * https://blog.tanteng.me/2017/01/supervisor-laravel-queue/
 
@@ -11,7 +11,7 @@
 
 * Supervisor 有两个主要的组成部分：
     * `supervisord`，运行 Supervisor 时会启动一个 _进程 supervisord_，它负责启动所管理的进程，并将所管理的进程作为自己的子进程来启动，而且可以在所管理的进程出现崩溃时自动重启。
-    
+
     * `supervisorctl`，是 _命令行管理工具_，可以用来执行 `stop、start、restart` 等命令，来对这些子进程进行管理。
 
 
@@ -122,7 +122,7 @@ sudo supervisorctl update
             sleep(3);
             file_put_contents(__DIR__.'/app.out', date("Y-m-d H:i:s")."\n", FILE_APPEND);
         }
-        ```    
+        ```
 
     * hello 主要配置： `/etc/supervisor/conf.d/hello.conf `
         ```ini
@@ -146,12 +146,17 @@ sudo supervisorctl update
 
 安装完成后，将配置文件拷贝到 /etc/supervisor/conf.d 中，然后使用 supervisorctl reload 却得到报错提示：
 
-error: <class 'socket.error'>, [Errno 2] No such file or directory: file: /usr/lib/python2.7/socket.py line: 228  
+error: <class 'socket.error'>, [Errno 2] No such file or directory: file: /usr/lib/python2.7/socket.py line: 228
 经过搜索，在 stackOverFlow 上找到了解决办法：
 
 在运行 reload 命令前，先运行如下两个命令
 
-sudo supervisord -c /etc/supervisor/supervisord.conf  
-sudo supervisorctl -c /etc/supervisor/supervisord.conf  
+sudo supervisord -c /etc/supervisor/supervisord.conf
+sudo supervisorctl -c /etc/supervisor/supervisord.conf
 即可解决 socket error，然后再使用 reload 命令，就可以正常的启动 supervisor 了。
 ````
+
+* 启动出错排查: `journalctl -ex`
+
+* 出错: `Error: File contains no section headers.`
+    * conf 配置文件没有添加 `[program:xxx]` 配置项导致的, 非编码问题
