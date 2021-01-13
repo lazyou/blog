@@ -1,4 +1,5 @@
 ## win10 激活
+* https://kms.netnr.com/
 * http://www.yishimei.cn/network/319.html
 
 ## 基于UFEI下的win10 + Ubuntu18.04双系统攻略
