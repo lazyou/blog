@@ -147,7 +147,7 @@ Elasticsearch -> Indices   -> Types  -> Documents -> Fields
     # Elasticsearch响应包含一个items数组，它罗列了每一个请求的结果，结果的顺序与我们请求的顺序相同：
     {
         "took": 4,
-        "errors": false, <1>
+        "errors": false,
         "items": [
         {  
             "delete": {
