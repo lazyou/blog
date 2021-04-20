@@ -39,6 +39,9 @@ sudo mv composer.phar /usr/local/bin/composer
     }
     ```
 
+### 取消设置
+`composer config -g --unset repos.packagist`
+
 
 ### 升级 Composer
 * `composer self-update`

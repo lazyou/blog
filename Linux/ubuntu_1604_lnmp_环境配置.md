@@ -33,18 +33,18 @@
 ### 相关软件安装
 
 #### 安装PHP
-* `apt install php-common php7.2 php7.2-cli php7.2-fpm php7.2-common php7.2-opcache php7.2-readline php7.2-curl php7.2-xml php7.2-json php7.2-gd php7.2-mbstring php7.2-mysql php7.2-zip php7.2-bcmath php7.2-bz2`
+* `apt install php-common php7.4 php7.4-cli php7.4-fpm php7.4-common php7.4-opcache php7.4-readline php7.4-curl php7.4-xml php7.4-json php7.4-gd php7.4-mbstring php7.4-mysql php7.4-zip php7.4-bcmath php7.4-bz2`
     * 如果你尝试使用 `apt install php` 该命令会自动为你安装 Apache，因此采用上面的细化安装
 
 
 * 配置 php.ini:
-    * `vim /etc/php/7.0/fpm/php.ini`
+    * `vim /etc/php/7.4/fpm/php.ini`
 
     * 定位到 `;cgi.fix_pathinfo=0` 这行, 去掉其前面的 `;` 注释，并将  `cgi.fix_pathinfo=1` 改为 `cgi.fix_pathinfo=0`
 
 
 * 重启 php:
-    * `service php7.0-fpm restart`
+    * `service php7.4-fpm restart`
 
 
 
@@ -61,6 +61,8 @@
     > Grant all on *.* to 'root'@'%' identified by 'root用户的密码' with grant option;
     > flush privileges;刷新权限
     ```
+
+* **2021-03-12**查看mysql自动创建的账号： `sudo cat /etc/mysql/debian.cnf`
 
 * TODO: mysql 如何添加新用户, 赋予某个数据库的操作权限?
 
@@ -98,7 +100,7 @@ flush privileges;
         }
         location ~ \.php$ {
             include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            fastcgi_pass unix:/run/php/php7.4-fpm.sock;
         }
     }
 
@@ -112,7 +114,7 @@ flush privileges;
         }
         location ~ \.php$ {
             include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            fastcgi_pass unix:/run/php/php7.4-fpm.sock;
         }
     }
     ```
@@ -221,7 +223,7 @@ $ composer 查看composer安装是否成功
     sudo ln -s /etc/php/7.0/mods-available/redis.ini /etc/php/7.0/fpm/conf.d/30-redis.ini
     sudo ln -s /etc/php/7.0/mods-available/redis.ini /etc/php/7.0/cli/conf.d/30-redis.ini
 
-    sudo service php7.0-fpm restart
+    sudo service php7.4-fpm restart
     ```
 
 * 验证扩展:
@@ -281,7 +283,7 @@ sudo make install
 echo "extension = event.so" | sudo tee -a /etc/php/7.0/mods-available/event.ini
 sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/fpm/conf.d/30-event.ini
 sudo ln -s /etc/php/7.0/mods-available/event.ini /etc/php/7.0/cli/conf.d/30-event.ini
-sudo service php7.0-fpm restart
+sudo service php7.4-fpm restart
 ```
 
 ### 安装 libevent
@@ -327,13 +329,13 @@ sudo service php7.0-fpm restart
     sudo ln -s /etc/php/7.0/mods-available/libevent.ini /etc/php/7.0/fpm/conf.d/20-libevent.ini
     sudo ln -s /etc/php/7.0/mods-available/libevent.ini /etc/php/7.0/cli/conf.d/20-libevent.ini
 
-    sudo service php7.0-fpm restart
+    sudo service php7.4-fpm restart
 ```
 
 
 ### 编译安装 swoole 扩展
 ```sh
-sudo apt install php7.0-dev
+sudo apt install php7.4-dev
 wget https://github.com/swoole/swoole-src/archive/v2.1.3.zip
 unzip v2.1.3.zip
 cd swoole
@@ -375,8 +377,8 @@ $ sudo service mongodb start | status
 
 * 更多扩展，以及错误显示开启
 ```
-sudo apt install php7.0-zip
-sudo apt install php7.0-bcmath
+sudo apt install php7.4-zip
+sudo apt install php7.4-bcmath
 sudo apt install php-bz2
 
 sudo vim /etc/php/7.0/fpm/php.ini
