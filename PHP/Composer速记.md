@@ -11,6 +11,10 @@
 * 中文文档: http://docs.phpcomposer.com/
 
 
+### 不安装
+* `composer install --no-dev`
+
+
 ### 安装 Composer
 ```sh
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
