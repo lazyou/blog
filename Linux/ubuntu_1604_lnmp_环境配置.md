@@ -184,7 +184,9 @@ $ composer 查看composer安装是否成功
 
 
 #### 项目权限相关设置
-* `sudo chown -R :www-data blog/` 在www目录下执行这一步
+* PHP项目部署切换到 www-data 用户 `sudo su - www-data -s /bin/bash`
+
+* `sudo chown -R www-data:www-data blog/` 在www目录下执行这一步
     * 这一步是将 blog 文件的用户更改为 www-data，www-data 为 ubuntu 下nginx, php 的默认用户。 因为在服务器运行期间读取项目文件的并不是你，而是 nginx 和 php（这样说好矛盾，我也不是十分的理解~）
 
     * TODO: 没明白程序在执行的时候拥有它自己的用户是什么概念? 怎么查看每个程序所属的用户呢?
