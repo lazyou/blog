@@ -14,6 +14,9 @@
 ### 不安装
 * `composer install --no-dev`
 
+### 本地配置文件
+* `/home/u/.config/composer/`
+
 
 ### 安装 Composer
 ```sh
