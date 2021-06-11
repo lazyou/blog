@@ -49,7 +49,7 @@ class Ioc
     }
 }
 
-interface log
+interface Log
 {
     public function write();
 }
@@ -91,10 +91,10 @@ class User
 $ioc = new Ioc();
 
 // TODO: 彻底解耦
-// $ioc->bind('log','FileLog');
-$ioc->bind('log','DatabaseLog');
-$ioc->bind('user','User');
+// $ioc->bind('Log','FileLog');
+$ioc->bind('Log','DatabaseLog');
+$ioc->bind('User','User');
 
-$user = $ioc->make('user');
+$user = $ioc->make('User');
 $user->login();
 exit;
