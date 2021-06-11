@@ -10,6 +10,9 @@ class Ioc
             $concrete = function ($ioc) use ($concrete) {
                 return $ioc->build($concrete);
             };
+
+            // TODO: 为什么 $concrete 的结构是 Closure Object{ 'static' => , 'this' => , 'parameter' => }
+            // print_r($concrete); exit;
         }
 
         $this->binding[$abstract]['concrete'] = $concrete;
@@ -40,6 +43,7 @@ class Ioc
     protected function getDependencies($paramters) {
         $dependencies = [];
         foreach ($paramters as $paramter) {
+            // TODO: 接口 Log 是怎么解析为具体实现类的呢？ 请看 make 的调用，得到容器 bind 时的闭包
             $dependencies[] = $this->make($paramter->getClass()->name);
         }
 
