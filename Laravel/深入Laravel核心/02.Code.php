@@ -5,8 +5,7 @@ class Ioc
     public $binding = [];
 
     // 返回的是闭包，方便按需加载
-    public function bind($abstract, $concrete)
-    {
+    public function bind($abstract, $concrete) {
         if (!$concrete instanceof Closure) {
             $concrete = function ($ioc) use ($concrete) {
                 return $ioc->build($concrete);
@@ -19,8 +18,7 @@ class Ioc
         // print_r($this->binding);
     }
 
-    public function make($abstract)
-    {
+    public function make($abstract) {
         $concrete = $this->binding[$abstract]['concrete'];
 
         return $concrete($this);
@@ -57,7 +55,7 @@ interface Log
 // 文件记录日志
 class FileLog implements Log
 {
-    public function write(){
+    public function write() {
         echo 'file log write...';
     }
 }
@@ -65,7 +63,7 @@ class FileLog implements Log
 // 数据库记录日志
 class DatabaseLog implements Log
 {
-    public function write(){
+    public function write() {
         echo 'database log write...';
     }
 }
@@ -74,13 +72,11 @@ class User
 {
     protected $log;
 
-    public function __construct(Log $log)
-    {
+    public function __construct(Log $log) {
         $this->log = $log;
     }
 
-    public function login()
-    {
+    public function login() {
         // 登录成功，记录登录日志
         echo 'login success...';
         $this->log->write();
@@ -92,8 +88,8 @@ $ioc = new Ioc();
 
 // TODO: 彻底解耦
 // $ioc->bind('Log','FileLog');
-$ioc->bind('Log','DatabaseLog');
-$ioc->bind('User','User');
+$ioc->bind('Log', 'DatabaseLog');
+$ioc->bind('User', 'User');
 
 $user = $ioc->make('User');
 $user->login();
