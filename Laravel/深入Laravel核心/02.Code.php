@@ -4,6 +4,7 @@ class Ioc
 {
     public $binding = [];
 
+    // 返回的是闭包，方便按需加载
     public function bind($abstract, $concrete)
     {
         if (!$concrete instanceof Closure) {
@@ -13,6 +14,9 @@ class Ioc
         }
 
         $this->binding[$abstract]['concrete'] = $concrete;
+
+        // TODO: 结构还挺复杂
+        // print_r($this->binding);
     }
 
     public function make($abstract)
@@ -25,6 +29,7 @@ class Ioc
     public function build($concrete) {
         $reflector = new ReflectionClass($concrete);
         $constructor = $reflector->getConstructor();
+
         if(is_null($constructor)) {
             return $reflector->newInstance();
         }else {
@@ -39,9 +44,9 @@ class Ioc
         foreach ($paramters as $paramter) {
             $dependencies[] = $this->make($paramter->getClass()->name);
         }
+
         return $dependencies;
     }
-
 }
 
 interface log
@@ -68,10 +73,12 @@ class DatabaseLog implements Log
 class User
 {
     protected $log;
+
     public function __construct(Log $log)
     {
         $this->log = $log;
     }
+
     public function login()
     {
         // 登录成功，记录登录日志
