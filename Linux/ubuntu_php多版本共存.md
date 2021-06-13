@@ -4,7 +4,7 @@
 
 ### 操作记录
 ```
-sudo add-apt-repository ppa:ondrej/php  
+sudo add-apt-repository ppa:ondrej/php
 
 # 安装 PHP7.1
 sudo apt install php7.1-fpm php7.1-mysql php7.1-curl php7.1-gd php7.1-mbstring php7.1-mcrypt php7.1-xml php7.1-xmlrpc php7.1-zip php7.1-opcache -y
