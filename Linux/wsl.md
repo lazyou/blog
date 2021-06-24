@@ -6,6 +6,11 @@
 * WSL 文件位置 `C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs`
 
 
+### wsl 重启
+* `Win + R` 输入 `services.msc`
+
+* 找到服务 `LXSSMANAGER` 右击重启
+
 
 ### vscode 的 wsl 插件连接失败: wslServer.sh: Permission denied
 * 设置可执行权限即可
